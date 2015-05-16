@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d4e3dc238f2bb0444b254a5ae0bec49b
+timeCreated: 1429360446
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - shard: {fileID: 190602, guid: 7f317838fa20ddd4b8038c1221a0c6a7, type: 2}
+  - outline: {fileID: 159050, guid: 594329bbb02488a4ab64562afb7cd79c, type: 2}
+  - cursor: {fileID: 144312, guid: b02354fb6d09f5b45b11f2f23eefba93, type: 2}
+  - blizzardThing: {fileID: 125210, guid: da0535aa0aa941a4c85cad4944200635, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

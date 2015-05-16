@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 042c1832654c54840b3c46fd0200eaa1
+timeCreated: 1426603095
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Head
+    21300002: Upper Right Arm
+    21300004: Lower Right Arm
+    21300006: Lower Left Arm
+    21300008: Upper Left Arm
+    21300010: Body
+    21300012: Upper Right Leg
+    21300014: Lower Right Leg
+    21300016: Upper Left Leg
+    21300018: Lower Left Leg
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 368
+        width: 191
+        height: 188
+      alignment: 9
+      pivot: {x: .508639514, y: .113791123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Upper Right Arm
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 443
+        width: 53
+        height: 139
+      alignment: 9
+      pivot: {x: .515567422, y: .873957992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lower Right Arm
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 274
+        width: 57
+        height: 143
+      alignment: 9
+      pivot: {x: .471050054, y: .851958156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lower Left Arm
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 270
+        width: 55
+        height: 146
+      alignment: 9
+      pivot: {x: .515001357, y: .833423555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Upper Left Arm
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 434
+        width: 52
+        height: 142
+      alignment: 9
+      pivot: {x: .5, y: .883489072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 305
+        width: 56
+        height: 270
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Upper Right Leg
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 389
+        width: 47
+        height: 178
+      alignment: 9
+      pivot: {x: .53510952, y: .889364541}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lower Right Leg
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 168
+        width: 49
+        height: 208
+      alignment: 9
+      pivot: {x: .499999702, y: .896674216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Upper Left Leg
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 387
+        width: 51
+        height: 176
+      alignment: 9
+      pivot: {x: .564712346, y: .889101207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lower Left Leg
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 165
+        width: 55
+        height: 208
+      alignment: 9
+      pivot: {x: .530002952, y: .920474708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
