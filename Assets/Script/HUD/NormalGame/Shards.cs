@@ -24,19 +24,17 @@ public class Shards : MonoBehaviour {
 	void Update () {
 		GameObject.Destroy (gameObject, 2);
 		transform.position += movement * speed * Time.deltaTime;
-//		if (player.position.x < mousePosition.x) {
-//			transform.position += Vector3.right * speed * Time.deltaTime;
-//		}
-//		else {
-//			transform.position += Vector3.left * speed * Time.deltaTime;
-//			transform.rotation = Quaternion.Euler(0,180,0);
-//		}
+		float rot_z = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Enemy") {
-			other.transform.SendMessage("Damage",shardDamage);
+			other.transform.SendMessage ("Damage", shardDamage);
 			GameObject.Destroy (gameObject);
 		}
+
+		if (other.tag == "Ground")
+			GameObject.Destroy (gameObject);
 	}
 }

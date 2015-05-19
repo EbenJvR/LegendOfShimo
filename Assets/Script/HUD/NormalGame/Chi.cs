@@ -7,7 +7,6 @@ public class Chi : MonoBehaviour {
 	Stats chiStat;
 	public Slider chiSlider;
 	public Text chi;
-	private float cost;
 
 	// Use this for initialization
 	void Start () {
@@ -22,14 +21,12 @@ public class Chi : MonoBehaviour {
 		chi.text = "Chi amount: " + chiSlider.value.ToString();
 	}
 
-	public void reduceChi(float amount){
-		cost = chiStat.getCurrentChi () - amount;
-		chiStat.setCurrentChi (cost);
+	public void reduceChi(int amount){
+		chiStat.reduceCurrentChi (amount);
 	}
 
 	private void regenChi(){
-		cost = chiStat.getCurrentChi () + 1;
-		chiStat.setCurrentChi (cost);
+		chiStat.increaseCurrentChi (1);
 	}
 
 	public float checkChi(){

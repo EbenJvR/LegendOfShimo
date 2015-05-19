@@ -13,10 +13,10 @@ public class Death : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
-			damage.Damage(1000000f);
+			damage.Damage(1000000);
 		}
 		if (other.tag == "Enemy") {
-			other.transform.SendMessage("Damage",10000f);
+			other.transform.SendMessage("Damage",10000);
 		}
 	}
 }

@@ -5,6 +5,7 @@ public class Arrow : MonoBehaviour {
 	
 	private Transform player;
 	private GameObject health;
+	Vector3 movement;
 	private Health healthScript;
 	public float speed = 0.5f;
 	private bool isLeft;
@@ -17,32 +18,23 @@ public class Arrow : MonoBehaviour {
 		health = GameObject.Find ("Health_Bar");
 		healthScript = (Health)health.GetComponent (typeof(Health));
 		player = GameObject.FindWithTag("Player").transform;
+		movement = player.position - transform.position;
+		movement.x = movement.x * 100;
+		movement.y = movement.y * 100;
+		if (movement != Vector3.zero)
+			movement.Normalize ();
 
 		//Shoot lower
 		if (randomShot >= 1 && randomShot <= 3) {
 			transform.Translate (Vector3.down * 10 * Time.deltaTime);
 		}
-
-		if (player.position.x < transform.position.x) {
-			isLeft = true;
-			transform.Translate (Vector3.left * 150 * Time.deltaTime);
-		}
-		else {
-			isLeft = false;
-			transform.Translate (Vector3.right * 150 * Time.deltaTime);
-		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isLeft == true) {
-			transform.position += Vector3.left * speed * Time.deltaTime;
-			transform.rotation = Quaternion.Euler(0,0,0);
-		}
-		else {
-			transform.position += Vector3.right * speed * Time.deltaTime;
-			transform.rotation = Quaternion.Euler(0,180,0);
-		}
+		transform.position += movement * speed * Time.deltaTime;
+		float rot_z = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0f, 0f, rot_z-180);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -50,7 +42,7 @@ public class Arrow : MonoBehaviour {
 		if(other.tag == "Player")
 		{
 			GameObject.Destroy (gameObject);
-			healthScript.Damage(10f);
+			healthScript.Damage(10);
 		}
 	}
 }

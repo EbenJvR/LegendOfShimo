@@ -6,7 +6,6 @@ public class XP : MonoBehaviour {
 
 	Stats xpStat;
 	public Slider xpSlider;
-	private float gain;
 	private int points;
 	private int level;
 	private int[] xp = new int[3];
@@ -15,9 +14,9 @@ public class XP : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		xpStat = GetComponent<Stats>();
-		xp[0] = 1;
-		xp[1] = 1;
-		xp[2] = 1;
+		xp[0] = 10;
+		xp[1] = 10;
+		xp[2] = 10;
 		xpSlider.maxValue = xp [xpStat.getLevel()];
 	}
 	
@@ -30,9 +29,8 @@ public class XP : MonoBehaviour {
 		Experience.text = "XP amount: " + xpSlider.value.ToString();
 	}
 	
-	public void increaseXP(float amount){
-		gain = xpStat.getCurrentXp() + amount;
-		xpStat.setCurrentXp(gain);
+	public void increaseXP(int amount){
+		xpStat.increaseCurrentXp(amount);
 	}
 
 	private void Level(){

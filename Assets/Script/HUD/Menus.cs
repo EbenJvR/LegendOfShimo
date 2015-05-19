@@ -11,7 +11,8 @@ public class Menus : MonoBehaviour {
 	public GameObject pause;
 	public GameObject upgradeMenu;
 	public bool playing = true;
-	private float healthAmount;
+	public bool upgrades = false;
+	private int healthAmount;
 
 	void Start () {
 		FindObjects ();
@@ -33,19 +34,24 @@ public class Menus : MonoBehaviour {
 //		}
 
 		//Pause game
-		if (pause != null) {
-			if (gameOver.activeSelf == false && playing == true) {
-				if (Input.GetKeyDown (KeyCode.Escape)) { 
-					pause.SetActive (true);
-					playing = false;
-					Time.timeScale = 0F;
-				}
-			} else if (gameOver.activeSelf == false && playing == false) {
-				if (Input.GetKeyDown (KeyCode.Escape)) {
-					pause.SetActive (false);
-					playing = true;
-					Time.timeScale = 1F;
-				}
+		if (gameOver.activeSelf == false && playing == true) {
+			if (Input.GetKeyDown (KeyCode.Escape)) { 
+				pause.SetActive (true);
+				playing = false;
+				Time.timeScale = 0F;
+			}
+		} else if (gameOver.activeSelf == false && playing == false && upgrades == false) {
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				pause.SetActive (false);
+				playing = true;
+				Time.timeScale = 1F;
+			}
+		}
+		//Remove Upgrades menu
+		if (upgrades == true) {
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				upgradeMenu.SetActive (false);
+				upgrades = false;
 			}
 		}
 	}
@@ -72,6 +78,7 @@ public class Menus : MonoBehaviour {
 	public void Upgrades (){
 		buttons.SetValues ();
 		upgradeMenu.SetActive(true);
+		upgrades = true;
 	}
 
 	public void CancelUpgrades(){
@@ -83,13 +90,13 @@ public class Menus : MonoBehaviour {
 	}
 
 	public void SaveGame(){
-		float value = save.getTotalHealth ();
+		int[] value = save.SaveStats ();
 		SaveLoad.Save (value);
 	}
 
 	public void LoadGame(){
-		float value = SaveLoad.Load ();
-		save.setCurrentHealth (value);
+		int[] value = SaveLoad.Load ();
+		save.LoadStats (value);
 	}
 
 	private void FindObjects(){

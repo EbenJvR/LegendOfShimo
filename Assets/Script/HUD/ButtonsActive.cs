@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ButtonsActive : MonoBehaviour {
 
 	Stats buttonStat;
-	UpgradeStats upgrades;
 	public Button[] Ice;
 	private int iceShardLevel;
 	public Button[] Avalanche;
@@ -26,7 +25,6 @@ public class ButtonsActive : MonoBehaviour {
 	
 	void Start () {
 		buttonStat = GetComponent<Stats>();
-		upgrades = GetComponent<UpgradeStats>();
 	}
 	// Update is called once per frame
 	void Update () {

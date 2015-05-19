@@ -96,7 +96,6 @@ public class Movement : MonoBehaviour {
 	void Jump()
 	{
 		datRigidBody.AddForce (Vector2.up * jumpForce);
-		Debug.Log ("Jump");
 	}
 	void AirJump()
 	{
@@ -104,6 +103,5 @@ public class Movement : MonoBehaviour {
 		v2.y = 0;
 		datRigidBody.velocity = v2;
 		datRigidBody.AddForce (Vector2.up * doubleJumpForce);
-		Debug.Log ("Double Jump");
 	}
 }

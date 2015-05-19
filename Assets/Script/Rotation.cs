@@ -13,7 +13,7 @@ public class Rotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		player = GameObject.Find("Stickman").transform;
+		player = GameObject.FindWithTag("Player").transform;
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		if (player.position.x < mousePosition.x) {
 			transform.rotation = Quaternion.Euler (0, 0, 0);

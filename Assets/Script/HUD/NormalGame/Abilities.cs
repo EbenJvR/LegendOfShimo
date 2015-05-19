@@ -29,19 +29,19 @@ public class Abilities : MonoBehaviour {
 	#endregion
 
 	#region Ability_Upgrades
-	private float[,] iceShardUpgrades = new float[,]{
+	private int[,] iceShardUpgrades = new int[,]{
 		{10,20,30,40,50},//damage
 		{5,10,15,20,25}//cost
 	};
-	private float[,] avalancheUpgrades = new float[,]{
+	private int[,] avalancheUpgrades = new int[,]{
 		{15,30,45,60,75},//damage
 		{10,20,30,40,50}//cost
 	};
-	private float[,] teleportUpgrades = new float[,]{
+	private int[,] teleportUpgrades = new int[,]{
 		{5,15,25,35,45},//drain cost
 		{2,3,4,5,6}//range
 	};
-	private float[,] iceWraithUpgrades = new float[,]{
+	private int[,] iceWraithUpgrades = new int[,]{
 		{10,15,20,25,30},//drain cost
 		{10,15,20,25,30}//damage increase
 	};

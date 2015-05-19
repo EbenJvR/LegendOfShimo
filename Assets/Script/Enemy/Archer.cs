@@ -6,6 +6,7 @@ public class Archer : MonoBehaviour {
 	private Transform player;
 	public GameObject Head;
 	public GameObject arrow;
+	public GameObject alert;
 	private float movementSpeed = 5f;//Archer movement speed
 	private float heightDifference;
 	private float idealHeight = 2f;//Are you in bow height?
@@ -22,31 +23,16 @@ public class Archer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		xpScript = (XP)FindObjectOfType(typeof(XP));
+		alert.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
 		player = GameObject.FindWithTag("Player").transform;
-		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position));
+		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),5);
 		if (hit != null && hit.collider.tag == "Player") {
-			Debug.Log ("Player Hit");
-		}
-		Debug.DrawRay(Head.transform.position, (player.position - Head.transform.position), Color.red);
-
-		//Find distance of player and rotate
-		if (player.position.x < transform.position.x) {
-			distance = transform.position.x - player.position.x;
-			transform.rotation = Quaternion.Euler (0, 0, 0);
-			if (distance > idealDistance && distance < maxDistance) {
-				transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-			}
-		} else if (player.position.x > transform.position.x) {
-			distance = player.position.x - transform.position.x;
-			transform.rotation = Quaternion.Euler (0, 180, 0);
-			if (distance > idealDistance && distance < maxDistance) {
-				transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-			}
+			Move ();
 		}
 
 		if (health <= 0 && dead == false)
@@ -67,6 +53,20 @@ public class Archer : MonoBehaviour {
 			counter = 0;
 		}
 	}
+
+	void Move(){
+		alert.SetActive(true);
+		if (player.position.x < transform.position.x) {
+			distance = transform.position.x - player.position.x;
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+			transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+		} else if (player.position.x > transform.position.x) {
+			distance = player.position.x - transform.position.x;
+			transform.rotation = Quaternion.Euler (0, 180, 0);
+			transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+		}
+	}
+
 	void Shoot(){
 		Instantiate (arrow, transform.position, Quaternion.identity);
 		counter = 0;
@@ -77,7 +77,6 @@ public class Archer : MonoBehaviour {
 	}
 
 	private void Die(){
-		Debug.Log ("Archer died");
 		GameObject.Destroy (gameObject);
 		dead = true;
 		xpScript.increaseXP (xpGain);

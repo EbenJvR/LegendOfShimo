@@ -1,6 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Enemy\Melee.cs">
+    <Files>
+      <File FileName="Assets\Script\Enemy\Archer.cs" Line="61" Column="46" />
+      <File FileName="Assets\Script\Enemy\Melee.cs" Line="33" Column="110" />
+      <File FileName="Assets\Script\Player\MovementMk2.cs" Line="30" Column="18" />
+      <File FileName="Assets\Script\HUD\NormalGame\Abilities.cs" Line="50" Column="2" />
+      <File FileName="Assets\Script\Enemy\Arrow.cs" Line="28" Column="44" />
+      <File FileName="Assets\Script\HUD\NormalGame\Shards.cs" Line="25" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

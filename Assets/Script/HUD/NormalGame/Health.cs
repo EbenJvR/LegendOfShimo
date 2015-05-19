@@ -8,7 +8,6 @@ public class Health : MonoBehaviour {
 	public Slider healthSlider;
 	private bool dead = false;
 	public Text healthText;
-	private float damage;
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +24,8 @@ public class Health : MonoBehaviour {
 		healthText.text = "Health amount: " + healthSlider.value.ToString();
 	}
 
-	public void Damage(float amount){
-		damage = healthStat.getCurrentHealth () - amount;
-		healthStat.setCurrentHealth (damage);
+	public void Damage(int amount){
+		healthStat.reduceCurrentHealth (amount);
 	}
 
 	private void Die(){

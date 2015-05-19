@@ -5,16 +5,17 @@ using UnityEngine.Serialization;
 public class Stats:MonoBehaviour{
 
 	public int totalHealth = 100;
-	public float currentHealth = 100;
+	public int currentHealth = 100;
 	public int totalChi = 100;
-	public float currentChi = 81;
+	public int currentChi = 100;
 	public int currentLevel = 0;
-	public float currentXp = 0;
-	public int levelPoints = 0;
+	public int currentXp = 0;
+	public int levelPoints = 50;
 	public int iceShardLevel = 0;
-	public int avalanceLevel = 2;
-	public int teleportLevel = 1;
-	public int iceWraithLevel = 4;
+	public int avalanceLevel = 0;
+	public int teleportLevel = 0;
+	public int iceWraithLevel = 0;
+	private int[] statAmount = new int[15];
 
 	#region Health
 	//Total Health
@@ -25,11 +26,17 @@ public class Stats:MonoBehaviour{
 		totalHealth = value;
 	}
 	//Current Health
-	public float getCurrentHealth (){
+	public int getCurrentHealth (){
 		return currentHealth;
 	}
-	public void setCurrentHealth(float value){
+	public void setCurrentHealth(int value){
 		currentHealth = value;
+	}
+	public void reduceCurrentHealth(int value){
+		currentHealth -= value;
+	}
+	public void increaseCurrentHealth(int value){
+		currentHealth += value;
 	}
 	#endregion
 	#region Chi
@@ -41,11 +48,17 @@ public class Stats:MonoBehaviour{
 		totalChi = value;
 	}
 	//Current Chi
-	public float getCurrentChi (){
+	public int getCurrentChi (){
 		return currentChi;
 	}
-	public void setCurrentChi(float value){
+	public void setCurrentChi(int value){
 		currentChi = value;
+	}
+	public void reduceCurrentChi(int value){
+		currentChi -= value;
+	}
+	public void increaseCurrentChi(int value){
+		currentChi += value;
 	}
 	#endregion
 	#region Level_Xp_Points
@@ -67,8 +80,11 @@ public class Stats:MonoBehaviour{
 	public float getCurrentXp(){
 		return currentXp;
 	}
-	public void setCurrentXp(float value){
+	public void setCurrentXp(int value){
 		currentXp = value;
+	}
+	public void increaseCurrentXp(int value){
+		currentXp += value;
 	}
 	#endregion
 	#region Upgrades
@@ -101,6 +117,35 @@ public class Stats:MonoBehaviour{
 		iceWraithLevel = value;
 	}
 
+	#endregion
+	#region Save/Load
+	public int[] SaveStats(){
+		statAmount [0] = totalHealth;
+		statAmount [1] = currentHealth;
+		statAmount [2] = totalChi;
+		statAmount [3] = currentChi;
+		statAmount [4] = currentLevel;
+		statAmount [5] = currentXp;
+		statAmount [6] = levelPoints;
+		statAmount [7] = iceShardLevel;
+		statAmount [8] = avalanceLevel;
+		statAmount [9] = teleportLevel;
+		statAmount [10] = iceWraithLevel;
+		return statAmount;
+	}
+	public void LoadStats(int[] value){
+		totalHealth = value[0];
+		currentHealth = value[1];
+		totalChi = value[2];
+		currentChi = value[3];
+		currentLevel = value[4];
+		currentXp = value[5];
+		levelPoints = value[6];
+		iceShardLevel = value[7];
+		avalanceLevel = value[8];
+		teleportLevel = value[9];
+		iceWraithLevel = value[10];
+	}
 	#endregion
 
 
