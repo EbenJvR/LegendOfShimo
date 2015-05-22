@@ -24,6 +24,8 @@ public class MovementMk2 : MonoBehaviour {
 		running = GetComponent<Animator> ();
 		playerCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
+		datRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+		datRigidBody.interpolation = RigidbodyInterpolation2D.Extrapolate;
 	}
 	
 	//Update is called once per frame
