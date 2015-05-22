@@ -17,7 +17,8 @@ public class MovementMk2 : MonoBehaviour {
 	public float doubleJumpForce = 10000f;
 	public GameObject feet;
 	public bool attack = false;
-	
+	float fallVelocity = 0;
+	bool checkFall = false;
 	
 	void Start () {
 		running = GetComponent<Animator> ();
@@ -46,9 +47,15 @@ public class MovementMk2 : MonoBehaviour {
 		{
 			isGrounded = true;
 			currentJump = 0;
+			if(checkFall)
+			{
+				FallDamage(fallVelocity);
+			}
 		} else 
 		{
 			isGrounded = false;
+			fallVelocity = datRigidBody.velocity.y;
+			checkFall = true;
 		} 
 		
 		if (Input.GetKey (KeyCode.A)) {
@@ -106,4 +113,17 @@ public class MovementMk2 : MonoBehaviour {
 		datRigidBody.velocity = v2;
 		datRigidBody.AddForce (Vector2.up * doubleJumpForce);
 	}
+	void FallDamage(float fall)
+	{
+		fall = Mathf.Round(fall);
+		if(fall < -26)
+		{
+			Debug.Log ("Eina kont");
+		}
+		checkFall = false;
+	}
 }
+
+
+
+
