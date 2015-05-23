@@ -6,12 +6,9 @@ public class MovementMk2 : MonoBehaviour {
 	// Use this for initialization
 	private Animator running;
 	BoxCollider2D playerCollider;
-	public float speed = 3f;
+	public float speed = 10f;
 	Rigidbody2D datRigidBody;
 	public bool isGrounded = false;
-	public Transform pointA;
-	public Transform pointB;
-	public LayerMask layerMask;
 	int currentJump = 0;
 	public float jumpForce = 10000f;
 	public float doubleJumpForce = 10000f;
@@ -24,6 +21,8 @@ public class MovementMk2 : MonoBehaviour {
 		running = GetComponent<Animator> ();
 		playerCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
+		datRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+		datRigidBody.interpolation = RigidbodyInterpolation2D.Extrapolate;
 	}
 	
 	//Update is called once per frame
@@ -122,6 +121,11 @@ public class MovementMk2 : MonoBehaviour {
 		}
 		checkFall = false;
 	}
+	void SetMovement(float other)
+	{
+		speed = other;
+	}
+
 }
 
 

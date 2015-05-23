@@ -29,12 +29,10 @@ public class Shards : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Enemy") {
+		if (other.gameObject.tag == "Enemy") {
 			other.transform.SendMessage ("Damage", shardDamage);
 			GameObject.Destroy (gameObject);
-		}
-
-		if (other.tag == "Ground")
+		}else if (other.gameObject.tag == "Ground")
 			GameObject.Destroy (gameObject);
 	}
 }
