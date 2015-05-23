@@ -1,53 +1,73 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
+using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour {
 
 	#region VariableDeclarations
 	private Chi chiScript;
 	private Stats stats;
-	public GameObject iceShard;
-	public GameObject teleportOutline;
 	public GameObject cursor;
-	public GameObject avalanche;
 	private Transform player;
-	public float teleportLength = 5f;
 	private float chiAmount;
 	private float counter;
-	private int iceShardLevel;
-	private int avalancheLevel;
-	private int teleportLevel;
-	private int iceWraithLevel;
-	private bool activatedTeleport = false;
-	private bool activatedIceWraith = false;
 	private bool abilityLock = false;
 	Vector3 mousePosition;
-	GameObject teleportSelection;
-	GameObject iceShardSelection;
-	GameObject iceWraithSelection;
-	GameObject avalancheSelection;
-	#endregion
 
+	#endregion
 	#region Ability_Upgrades
 	private int[,] iceShardUpgrades = new int[,]{
-		{10,20,30,40,50},//damage
-		{5,10,15,20,25}//cost
+		{30,40,50,60},//damage
+		{25,30,45,50},//cost
+		{7,6,5,4}//cooldown
 	};
 	private int[,] avalancheUpgrades = new int[,]{
-		{15,30,45,60,75},//damage
-		{10,20,30,40,50}//cost
+		{30,40,50,60},//damage
+		{45,55,65,75},//cost
+		{10,9,8,7}//cooldown
 	};
 	private int[,] teleportUpgrades = new int[,]{
-		{5,15,25,35,45},//drain cost
-		{2,3,4,5,6}//range
+		{2,3,4,5,6},//range
+		{25,30,35,40},//cost
+		{8,7,6,5}//cooldown
 	};
 	private int[,] iceWraithUpgrades = new int[,]{
-		{10,15,20,25,30},//drain cost
-		{10,15,20,25,30}//damage increase
+		{20,25,30,35},//damage increase
+		{10,12,14,16},//drain cost
+		{25,22,19,16}//cooldown
 	};
 	#endregion
-
-
+	#region IceShard
+	private Stopwatch iceShardTimer;
+	public GameObject iceShard;
+	GameObject iceShardSelection;
+	public Slider iceShardCooldown;
+	private int iceShardLevel;
+	#endregion
+	#region Avalanche
+	private Stopwatch avalancheTimer;
+	public GameObject avalanche;
+	GameObject avalancheSelection;
+	public Slider avalancheCooldown;
+	private int avalancheLevel;
+	#endregion
+	#region Teleport
+	private Stopwatch teleportTimer;
+	public GameObject teleportOutline;
+	GameObject teleportSelection;
+	public Slider teleportCooldown;
+	private int teleportLevel;
+	private bool activatedTeleport = false;
+	public float teleportLength = 5f;
+	#endregion
+	#region IceWraith
+	private Stopwatch iceWraithTimer;
+	GameObject iceWraithSelection;
+	public Slider iceWraithCooldown;
+	private int iceWraithLevel;
+	private bool activatedIceWraith = false;
+	#endregion
 
 	// Use this for initialization
 	void Start () {
@@ -57,11 +77,37 @@ public class Abilities : MonoBehaviour {
 		Instantiate (cursor, mousePosition, Quaternion.identity);
 		findObjects ();
 		Reset ();
+		timers ();
+		iceShardCooldown.value = 0;
+		avalancheCooldown.value = 0;
+		teleportCooldown.value = 0;
+		iceWraithCooldown.value = 0;
 	}
 
 
 	// Update is called once per frame
 	void Update () {
+		//IceShard timer
+		if ((int)iceShardTimer.ElapsedMilliseconds / 1000 >= iceShardUpgrades[2,iceShardLevel]) {
+			iceShardTimer.Stop();
+			iceShardTimer.Reset();
+		}
+		//avalanche timer
+		if ((int)avalancheTimer.ElapsedMilliseconds / 1000 >= avalancheUpgrades[2,avalancheLevel]) {
+			avalancheTimer.Stop();
+			avalancheTimer.Reset();
+		}
+		//Teleport and IceWraith timers does not work
+//		if ((int)teleportTimer.ElapsedMilliseconds / 1000 >= teleportUpgrades[2,teleportLevel]) {
+//			teleportTimer.Stop();
+//			teleportTimer.Reset();
+//		}
+//		if ((int)iceWraithTimer.ElapsedMilliseconds / 1000 >= iceWraithUpgrades[2,iceWraithLevel]) {
+//			iceWraithTimer.Stop();
+//			iceWraithTimer.Reset();
+//		}
+		iceShardCooldown.value = (float)iceShardTimer.ElapsedMilliseconds / 1000;
+		avalancheCooldown.value = (float)avalancheTimer.ElapsedMilliseconds / 1000;
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		chiAmount = chiScript.checkChi ();
 		iceShardLevel = stats.getIceShardLevel ();
@@ -165,9 +211,12 @@ public class Abilities : MonoBehaviour {
 	#region FirstMethods
 	//First ability
 	private void activateFirst(){
-		if(chiAmount >= iceShardUpgrades[1,iceShardLevel]){
+		if(chiAmount >= iceShardUpgrades[1,iceShardLevel] && iceShardTimer.ElapsedMilliseconds == 0){
 			Instantiate(iceShard, player.position, Quaternion.identity);
 			chiScript.reduceChi(iceShardUpgrades[1,iceShardLevel]);
+			iceShardTimer.Start();
+			iceShardCooldown.maxValue = iceShardUpgrades [2, iceShardLevel];
+			iceShardCooldown.value = iceShardCooldown.maxValue;
 		}
 	}
 	#endregion
@@ -176,9 +225,12 @@ public class Abilities : MonoBehaviour {
 	//Second ability
 	private void activateSecond()
 	{
-		if(chiAmount >= avalancheUpgrades[1,avalancheLevel]){
+		if(chiAmount >= avalancheUpgrades[1,avalancheLevel] && avalancheTimer.ElapsedMilliseconds == 0){
 			Instantiate(avalanche, player.position, Quaternion.identity);
 			chiScript.reduceChi(avalancheUpgrades[1,avalancheLevel]);
+			avalancheTimer.Start ();
+			avalancheCooldown.maxValue = avalancheUpgrades [2, avalancheLevel];
+			iceShardCooldown.value = avalancheCooldown.maxValue;
 		}
 	}
 	#endregion
@@ -186,14 +238,18 @@ public class Abilities : MonoBehaviour {
 	#region ThirdMethods
 	//third ability
 	private void activateThird(){
-		abilityLock = true;
-		Instantiate (teleportOutline, mousePosition, Quaternion.identity);
-		Time.timeScale = 0.2F;
-		activatedTeleport = true;
-		GameObject cursorClone = (GameObject)GameObject.Find ("Cursor(Clone)");
-		GameObject.Destroy (cursorClone);
+		//if (teleportTimer.ElapsedMilliseconds == 0) {
+			abilityLock = true;
+			Instantiate (teleportOutline, mousePosition, Quaternion.identity);
+			Time.timeScale = 0.2F;
+			activatedTeleport = true;
+			GameObject cursorClone = (GameObject)GameObject.Find ("Cursor(Clone)");
+			GameObject.Destroy (cursorClone);
+		//}
 	}
 	private void deactivateThird(){
+		//teleportTimer.Start ();
+		teleportCooldown.maxValue = teleportUpgrades [2, teleportLevel];
 		abilityLock = false;
 		player.position = Vector3.MoveTowards (player.position, mousePosition, 100);
 		player.transform.position = new Vector3 (player.position.x, player.position.y, -1);
@@ -204,6 +260,7 @@ public class Abilities : MonoBehaviour {
 		Instantiate (cursor, mousePosition, Quaternion.identity);
 	} 
 	private void removeThird(){
+		//teleportTimer.Start ();
 		abilityLock = false;
 		Time.timeScale = 1F;
 		activatedTeleport = false;
@@ -211,7 +268,7 @@ public class Abilities : MonoBehaviour {
 		GameObject.Destroy (outlineCloneTime);
 		Instantiate (cursor, mousePosition, Quaternion.identity);
 	}
-	//Fourth ability drain
+	//third ability drain
 	private void teleportDrain(){
 		chiScript.reduceChi (teleportUpgrades[0,teleportLevel]);
 	}
@@ -221,6 +278,7 @@ public class Abilities : MonoBehaviour {
 	//Fourth ability
 	private void activateFourth(){
 		activatedIceWraith = true;
+		iceWraithCooldown.maxValue = iceWraithUpgrades [2, iceWraithLevel];
 	}
 	private void deactivateFourth(){
 		activatedIceWraith = false;
@@ -244,10 +302,18 @@ public class Abilities : MonoBehaviour {
 	//Find Objects
 	private void findObjects(){
 		player = GameObject.FindWithTag("Player").transform;
-		teleportSelection = GameObject.Find("Teleport/Teleport_Select");
 		iceShardSelection = GameObject.Find("Shards/Shards_Select");
-		iceWraithSelection = GameObject.Find("Archon/Archon_Select");
 		avalancheSelection = GameObject.Find("Blizzard/Blizzard_Select");
+		teleportSelection = GameObject.Find("Teleport/Teleport_Select");
+		iceWraithSelection = GameObject.Find("Archon/Archon_Select");
+
+	}
+
+	private void timers(){
+		iceShardTimer = new Stopwatch ();
+		avalancheTimer = new Stopwatch ();
+		teleportTimer = new Stopwatch ();
+		iceWraithTimer = new Stopwatch ();
 	}
 	#endregion
 }

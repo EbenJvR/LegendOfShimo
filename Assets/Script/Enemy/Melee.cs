@@ -30,8 +30,8 @@ public class Melee : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		player = GameObject.FindWithTag("Player").transform;
-		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),5);
-		if (hit != null && hit.collider.tag == "Player") {
+		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),maxDistance);
+		if (hit.collider.tag == "Player") {
 			alert.SetActive(true);
 			Move ();
 		}

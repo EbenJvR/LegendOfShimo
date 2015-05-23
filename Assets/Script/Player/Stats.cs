@@ -11,10 +11,10 @@ public class Stats:MonoBehaviour{
 	public int currentLevel = 0;
 	public int currentXp = 0;
 	public int levelPoints = 50;
-	public int iceShardLevel = 0;
-	public int avalanceLevel = 0;
-	public int teleportLevel = 0;
-	public int iceWraithLevel = 0;
+	public int iceShardLevel = 1;
+	public int avalanceLevel = 1;
+	public int teleportLevel = 1;
+	public int iceWraithLevel = 1;
 	private int[] statAmount = new int[15];
 
 	#region Health

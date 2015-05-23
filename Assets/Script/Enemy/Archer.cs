@@ -10,7 +10,7 @@ public class Archer : MonoBehaviour {
 	private float movementSpeed = 5f;//Archer movement speed
 	private float heightDifference;
 	private float idealHeight = 2f;//Are you in bow height?
-	private float maxDistance = 15;//Where the archer will stop following you
+	private float maxDistance = 5;//Where the archer will stop following you
 	private float idealDistance = 9;//Where the archer wil start shooting you
 	private float distance;
 	private float health = 100;
@@ -30,8 +30,8 @@ public class Archer : MonoBehaviour {
 	void Update()
 	{
 		player = GameObject.FindWithTag("Player").transform;
-		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),5);
-		if (hit != null && hit.collider.tag == "Player") {
+		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),maxDistance);
+		if (hit.collider.tag == "Player") {
 			Move ();
 		}
 
