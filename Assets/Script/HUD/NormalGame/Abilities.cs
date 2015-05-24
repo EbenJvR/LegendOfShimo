@@ -19,7 +19,7 @@ public class Abilities : MonoBehaviour {
 	#region Ability_Upgrades
 	private int[,] iceShardUpgrades = new int[,]{
 		{30,40,50,60},//damage
-		{25,30,45,50},//cost
+		{0,30,45,50},//cost
 		{7,6,5,4}//cooldown
 	};
 	private int[,] avalancheUpgrades = new int[,]{
@@ -28,7 +28,7 @@ public class Abilities : MonoBehaviour {
 		{10,9,8,7}//cooldown
 	};
 	private int[,] teleportUpgrades = new int[,]{
-		{2,3,4,5,6},//range
+		{2,3,4,5},//range
 		{25,30,35,40},//cost
 		{8,7,6,5}//cooldown
 	};
@@ -211,7 +211,7 @@ public class Abilities : MonoBehaviour {
 	#region FirstMethods
 	//First ability
 	private void activateFirst(){
-		if(chiAmount >= iceShardUpgrades[1,iceShardLevel] && iceShardTimer.ElapsedMilliseconds == 0){
+		if(chiAmount >= iceShardUpgrades[1,iceShardLevel]){ //&& iceShardTimer.ElapsedMilliseconds == 0){
 			Instantiate(iceShard, player.position, Quaternion.identity);
 			chiScript.reduceChi(iceShardUpgrades[1,iceShardLevel]);
 			iceShardTimer.Start();
@@ -270,7 +270,7 @@ public class Abilities : MonoBehaviour {
 	}
 	//third ability drain
 	private void teleportDrain(){
-		chiScript.reduceChi (teleportUpgrades[0,teleportLevel]);
+		chiScript.reduceChi (teleportUpgrades[1, teleportLevel]);
 	}
 	#endregion
 
