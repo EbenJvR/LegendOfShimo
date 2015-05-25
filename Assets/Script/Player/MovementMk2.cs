@@ -16,8 +16,10 @@ public class MovementMk2 : MonoBehaviour {
 	public bool attack = false;
 	float fallVelocity = 0;
 	bool checkFall = false;
+	SwordDamage sDmg;
 	
 	void Start () {
+		sDmg = (SwordDamage)FindObjectOfType(typeof(SwordDamage));
 		running = GetComponent<Animator> ();
 		playerCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
@@ -94,7 +96,9 @@ public class MovementMk2 : MonoBehaviour {
 		}
 		
 		if (Input.GetMouseButtonDown (0)) {
-			//running.SetBool("Attack",true);
+			running.Play ("Attack2.0");
+			sDmg.CanDamage(true);
+
 		}
 	}
 	bool IsGrounded()
