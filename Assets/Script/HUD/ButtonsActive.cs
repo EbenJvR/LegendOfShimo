@@ -38,9 +38,6 @@ public class ButtonsActive : MonoBehaviour {
 		}
 	}
 
-	//Use gets and sets from upgrade stats
-	//!this
-
 	public void SetValues(){
 		points = buttonStat.getPoints ();
 		health = buttonStat.getTotalHealth ();
@@ -54,31 +51,47 @@ public class ButtonsActive : MonoBehaviour {
 	void SetInteractable(){
 		//Ice Shard
 		for (int i = 0; i < 4; i++) {
-			if(i != iceShardLevel)
-				Ice[i].interactable = false;
-			else 
-				Ice[i].interactable = true;
+			if(iceShardLevel != 0){
+				if(i < iceShardLevel)
+					Ice[i].image.color = Color.blue;
+				if(i == iceShardLevel)
+					Ice[i].interactable = true;
+				else 
+					Ice[i].interactable = false;
+			}
 		}
 		//Avalanche
 		for (int i = 0; i < 4; i++) {
-			if(i!= avalancheLevel)
-				Avalanche[i].interactable = false;
-			else 
-				Avalanche[i].interactable = true;
+			if(avalancheLevel != 0){
+				if(i < avalancheLevel)
+					Avalanche[i].image.color = Color.blue;
+				if(i == avalancheLevel)
+					Avalanche[i].interactable = true;
+				else 
+					Avalanche[i].interactable = false;
+			}
 		}
 		//Teleport
 		for (int i = 0; i < 4; i++) {
-			if(i!= teleportLevel)
-				Teleport[i].interactable = false;
-			else 
-				Teleport[i].interactable = true;
+			if(teleportLevel != 0){
+				if(i < teleportLevel)
+					Teleport[i].image.color = Color.blue;
+				if(i == teleportLevel)
+					Teleport[i].interactable = true;
+				else 
+					Teleport[i].interactable = false;
+			}
 		}
 		//Ice Wraith
 		for (int i = 0; i < 4; i++) {
-			if(i!= iceWraithLevel)
-				IceWraith[i].interactable = false;
-			else 
-				IceWraith[i].interactable = true;
+			if(iceWraithLevel != 0){
+				if(i < iceWraithLevel)
+					IceWraith[i].image.color = Color.blue;
+				if(i == iceWraithLevel)
+					IceWraith[i].interactable = true;
+				else 
+					IceWraith[i].interactable = false;
+			}
 		}
 		//Health
 		Health.interactable = true;

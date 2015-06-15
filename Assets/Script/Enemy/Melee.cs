@@ -2,11 +2,27 @@
 using System.Collections;
 
 public class Melee : EnemyBaseClass {
-
+	
+//	private XP xpScript;
 	void Start()
 	{
-		base.alert.SetActive(false);
+		PutInStart ();
+		health = 1;
+		xpGain = 1;
+		movementSpeed = 5f;
+		alertRange = 50f;
+//		attackSpeed = 2;
+//		attackRange = 2;
 	}
+
+	void Update(){
+		PutInUpdate ();
+	}
+
+
+
+
+	//Old Code
 //	private Transform player;
 //	public GameObject Head;
 //	public GameObject alert;

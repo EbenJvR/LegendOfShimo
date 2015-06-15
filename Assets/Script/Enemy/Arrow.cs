@@ -15,8 +15,7 @@ public class Arrow : MonoBehaviour {
 		randomShot = Random.Range (1, 10);
 		transform.Translate (Vector3.up * 10 * Time.deltaTime);
 		GameObject.Destroy (gameObject, 2);
-		health = GameObject.Find ("Health_Bar");
-		healthScript = (Health)health.GetComponent (typeof(Health));
+		healthScript = (Health)FindObjectOfType (typeof(Health));
 		player = GameObject.FindWithTag("Player").transform;
 		movement = player.position - transform.position;
 		movement.x = movement.x * 100;

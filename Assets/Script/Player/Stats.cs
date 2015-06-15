@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Serialization;
 
-public class Stats:MonoBehaviour{
+public class Stats : MonoBehaviour{
 
 	public int totalHealth = 100;
 	public int currentHealth = 100;

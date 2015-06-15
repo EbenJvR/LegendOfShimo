@@ -6,7 +6,6 @@ public class Menus : MonoBehaviour {
 	//private Health healthScript;
 	ButtonsActive buttons;
 	Stats save;
-	public GameObject health;
 	public GameObject gameOver;
 	public GameObject pause;
 	public GameObject upgradeMenu;
@@ -25,13 +24,6 @@ public class Menus : MonoBehaviour {
 	}
 
 	void Update () {
-		//Died
-//		if (health != null) {
-//			healthAmount = healthScript.checkHealth ();
-//			if (healthAmount <= 0) {
-//				gameOver.SetActive(true);
-//			}
-//		}
 
 		//Pause game
 		if (gameOver.activeSelf == false && playing == true) {
@@ -83,6 +75,7 @@ public class Menus : MonoBehaviour {
 
 	public void CancelUpgrades(){
 		upgradeMenu.SetActive (false);
+		upgrades = false;
 	}
 
 	public void MainMenu(){
@@ -102,5 +95,9 @@ public class Menus : MonoBehaviour {
 	private void FindObjects(){
 		pause = GameObject.Find("Pause");
 		upgradeMenu = GameObject.Find ("Upgrades");
+	}
+
+	public bool GetPlaying(){
+		return playing;
 	}
 }
