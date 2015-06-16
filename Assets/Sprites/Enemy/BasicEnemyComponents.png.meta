@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 14885e5c45ef035458f459d63b5577d9
+timeCreated: 1434468692
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BasicEnemyHead
+    21300002: BasicEnemyFoot
+    21300004: BasicEnemySword
+    21300006: BasicEnemyBody
+    21300008: BasicEnemyLeg
+    21300010: BasicEnemyArm
+    21300012: BasicEnemyHand
+    21300014: BasicEnemyStick
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BasicEnemyHead
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1814
+        width: 421
+        height: 374
+      alignment: 9
+      pivot: {x: .373897225, y: .12738201}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyFoot
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1678
+        width: 165
+        height: 216
+      alignment: 9
+      pivot: {x: .499999642, y: .761144578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemySword
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1786
+        width: 341
+        height: 495
+      alignment: 9
+      pivot: {x: .860025823, y: .111215428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyBody
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1424
+        width: 247
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyLeg
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1128
+        width: 198
+        height: 342
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyArm
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1471
+        width: 125
+        height: 162
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyHand
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1107
+        width: 148
+        height: 303
+      alignment: 9
+      pivot: {x: .724194527, y: .872325301}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicEnemyStick
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 55
+        width: 716
+        height: 722
+      alignment: 9
+      pivot: {x: .184875533, y: .794122934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -54,8 +54,11 @@
      <Compile Include="Assets\Script\Enemy\Arrow.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyBaseClass.cs" />
      <Compile Include="Assets\Script\Enemy\Melee.cs" />
+     <Compile Include="Assets\Script\Environment\ActivateFallingObject.cs" />
      <Compile Include="Assets\Script\Environment\Checkpoint.cs" />
      <Compile Include="Assets\Script\Environment\Death.cs" />
+     <Compile Include="Assets\Script\Environment\DeathFromAbove.cs" />
+     <Compile Include="Assets\Script\Environment\FallingObject.cs" />
      <Compile Include="Assets\Script\Environment\ParralaxScript.cs" />
      <Compile Include="Assets\Script\Environment\Snow.cs" />
      <Compile Include="Assets\Script\Environment\Spawn.cs" />

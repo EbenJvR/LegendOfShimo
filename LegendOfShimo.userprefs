@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\HUD\NormalGame\Abilities.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Environment\ActivateFallingObject.cs">
     <Files>
-      <File FileName="Assets\Script\Enemy\EnemyBaseClass.cs" Line="83" Column="3" />
-      <File FileName="Assets\Script\Enemy\Melee.cs" Line="16" Column="3" />
-      <File FileName="Assets\Script\HUD\NormalGame\Abilities.cs" Line="355" Column="30" />
+      <File FileName="Assets\Script\Environment\FallingObject.cs" Line="7" Column="20" />
+      <File FileName="Assets\Script\Environment\Death.cs" Line="6" Column="2" />
+      <File FileName="Assets\Script\Player\MovementMk2.cs" Line="12" Column="22" />
+      <File FileName="Assets\Script\Environment\DeathFromAbove.cs" Line="15" Column="4" />
+      <File FileName="Assets\Script\HUD\NormalGame\Abilities.cs" Line="306" Column="26" />
+      <File FileName="Assets\Script\Environment\ActivateFallingObject.cs" Line="11" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
