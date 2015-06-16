@@ -77,6 +77,8 @@
      <Compile Include="Assets\Script\Player\SaveLoad.cs" />
      <Compile Include="Assets\Script\Player\Stats.cs" />
      <Compile Include="Assets\Script\Player\SwordDamage.cs" />
+     <Compile Include="Assets\Script\Rolling Objects\IsRollingObjectSpawn.cs" />
+     <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
