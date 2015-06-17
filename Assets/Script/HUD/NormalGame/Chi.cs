@@ -32,4 +32,9 @@ public class Chi : MonoBehaviour {
 	public float checkChi(){
 		return chiStat.getCurrentChi ();
 	}
+
+	public void RestoreChi(int amount)
+	{
+		chiStat.increaseCurrentChi (amount);
+	}
 }

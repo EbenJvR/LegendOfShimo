@@ -71,15 +71,18 @@
      <Compile Include="Assets\Script\HUD\NormalGame\Shards.cs" />
      <Compile Include="Assets\Script\HUD\NormalGame\XP.cs" />
      <Compile Include="Assets\Script\HUD\UpgradeStats.cs" />
+     <Compile Include="Assets\Script\Lotus\BlueLotus.cs" />
+     <Compile Include="Assets\Script\Lotus\RedLotus.cs" />
+     <Compile Include="Assets\Script\Lotus\XPLotus.cs" />
      <Compile Include="Assets\Script\Player\Movement.cs" />
      <Compile Include="Assets\Script\Player\Movement3D.cs" />
      <Compile Include="Assets\Script\Player\MovementMk2.cs" />
-     <Compile Include="Assets\Script\Player\SaveLoad.cs" />
      <Compile Include="Assets\Script\Player\Stats.cs" />
      <Compile Include="Assets\Script\Player\SwordDamage.cs" />
      <Compile Include="Assets\Script\Rolling Objects\IsRollingObjectSpawn.cs" />
      <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
+     <Compile Include="Assets\Script\SaveLoad.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
