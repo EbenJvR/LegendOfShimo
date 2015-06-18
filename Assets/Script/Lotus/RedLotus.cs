@@ -5,9 +5,9 @@ public class RedLotus : MonoBehaviour {
 
 	private Health healthScript;
  	Stats stats;
-	private int heal;
-	public int percentageOfHeal;
-	private int totalHealth;
+	private float heal;
+	public float percentageOfHeal;
+	private float totalHealth;
 
 	void Start()
 	{

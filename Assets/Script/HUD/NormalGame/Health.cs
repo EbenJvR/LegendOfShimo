@@ -41,8 +41,9 @@ public class Health : MonoBehaviour {
 		healthStat.setCurrentHealth (healthStat.getTotalHealth());
 	}
 
-	public void RestoreHealth(int amount)
+	public void RestoreHealth(float amount)
 	{
-		healthStat.increaseCurrentHealth (amount);
+
+		healthStat.increaseCurrentHealth ((int)amount);
 	}
 }

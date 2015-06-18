@@ -5,9 +5,9 @@ public class BlueLotus : MonoBehaviour {
 
 	private Chi chiScript;
 	Stats stats;
-	private int restoreChi;
-	public int percentageOfRestoreChi;
-	private int totalChi;
+	private float restoreChi;
+	public float percentageOfRestoreChi;
+	private float totalChi;
 	
 	void Start()
 	{
@@ -22,7 +22,7 @@ public class BlueLotus : MonoBehaviour {
 		{
 			totalChi = stats.totalChi;
 			restoreChi = (totalChi / 100) * percentageOfRestoreChi;
-			chiScript.RestoreChi(restoreChi);
+			chiScript.RestoreChi((int)restoreChi);
 			this.gameObject.SetActive(false);
 			Debug.Log("Restore chi is:" + restoreChi.ToString());
 		}
