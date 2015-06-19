@@ -22,7 +22,7 @@ public class Abilities : MonoBehaviour {
 	#region Ability_Upgrades
 	private int[,] iceShardUpgrades = new int[,]{
 		{0,30,40,50,60},//damage
-		{0,0,30,45,50},//cost
+		{0,15,30,45,50},//cost
 		{0,7,6,5,4}//cooldown
 	};
 	private int[,] avalancheUpgrades = new int[,]{

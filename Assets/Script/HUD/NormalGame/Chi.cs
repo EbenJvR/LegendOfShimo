@@ -19,6 +19,8 @@ public class Chi : MonoBehaviour {
 		chiSlider.maxValue = chiStat.getTotalChi();
 		chiSlider.value = chiStat.getCurrentChi();
 		chi.text = "Chi amount: " + chiSlider.value.ToString();
+		if (chiStat.getCurrentChi () > chiStat.getTotalChi ())
+			chiStat.setCurrentChi (chiStat.getTotalChi ());
 	}
 
 	public void reduceChi(int amount){

@@ -21,6 +21,8 @@ public class Health : MonoBehaviour {
 		if (healthSlider.value == 0 && dead == false) {
 			Die ();
 		}
+		if (healthStat.getCurrentHealth() > healthStat.getTotalHealth())
+			healthStat.setCurrentHealth(healthStat.getTotalHealth());
 		healthText.text = "Health amount: " + healthSlider.value.ToString();
 	}
 
