@@ -3,18 +3,18 @@ using System.Collections;
 
 public class Stats : MonoBehaviour{
 
-	public int totalHealth = 100;
-	public int currentHealth = 100;
-	public int totalChi = 100;
-	public int currentChi = 100;
-	public int currentLevel = 0;
-	public int currentXp = 0;
-	public int levelPoints = 50;
-	public int iceShardLevel = 1;
-	public int avalanceLevel = 1;
-	public int teleportLevel = 1;
-	public int iceWraithLevel = 1;
-	private int[] statAmount = new int[15];
+	public int totalHealth = 100; //Total Player Health
+	public int currentHealth = 100; //Current Player Health
+	public int totalChi = 100; //Total Player Chi
+	public int currentChi = 100; //Current Player Chi
+	public int currentLevel = 0; //Current Player Level
+	public int currentXp = 0; //Current Player XP value
+	public int levelPoints = 50; //Current Player Level Up Points
+	public int iceShardLevel = 1; //Ice Shard Level
+	public int avalanceLevel = 1; //Avalanche Level
+	public int teleportLevel = 1; //Teleport Level
+	public int iceWraithLevel = 1; //Ice Wraith Level
+	private int[] statAmount = new int[15]; //Save Array
 
 	#region Health
 	//Total Health
@@ -28,12 +28,15 @@ public class Stats : MonoBehaviour{
 	public int getCurrentHealth (){
 		return currentHealth;
 	}
+	//Set Current Health
 	public void setCurrentHealth(int value){
 		currentHealth = value;
 	}
+	//Reduce Current Health
 	public void reduceCurrentHealth(int value){
 		currentHealth -= value;
 	}
+	//Increase Current Health
 	public void increaseCurrentHealth(int value){
 		currentHealth += value;
 	}
@@ -50,12 +53,15 @@ public class Stats : MonoBehaviour{
 	public int getCurrentChi (){
 		return currentChi;
 	}
+	//Set Current Chi
 	public void setCurrentChi(int value){
 		currentChi = value;
 	}
+	//Reduce Current Chi
 	public void reduceCurrentChi(int value){
 		currentChi -= value;
 	}
+	//Increase Current Chi
 	public void increaseCurrentChi(int value){
 		currentChi += value;
 	}
@@ -65,23 +71,27 @@ public class Stats : MonoBehaviour{
 	public int getPoints(){
 		return levelPoints;
 	}
+	//Set Level Points
 	public void setPoints(int value){
 		levelPoints = value;
 	}
-	//Current level
+	//Get Current level
 	public int getLevel(){
 		return currentLevel;
 	}
+	//Set Current Level
 	public void setLevel(int value){
 		currentLevel = value;
 	}
-	//Current Xp
+	//Get Current Xp
 	public float getCurrentXp(){
 		return currentXp;
 	}
+	//Set Current Xp
 	public void setCurrentXp(int value){
 		currentXp = value;
 	}
+	//Increase Current Xp
 	public void increaseCurrentXp(int value){
 		currentXp += value;
 	}

@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class Abilities : MonoBehaviour {
 
 	#region VariableDeclarations
-	private Chi chiScript;
-	private Stats stats;
-	private Menus menu;
-	public GameObject cursor;
-	public bool playing;
-	private Transform player;
-	private float chiAmount;
-	private float counter;
-	private bool abilityLock = false;
-	Vector3 mousePosition;
-	Vector3 direction;
+	private Chi chiScript; //Abilities Use Chi
+	private Stats stats; //Ability Levels
+	private Menus menu; //Check If Game Is Paused
+	public GameObject cursor; //Remove and Insert Cursor Because Of Teleport
+	public bool playing; //Is The Game Paused
+	private Transform player; //Teleport Player
+	private float chiAmount; //Don't use ability if Chi is too low
+	private float counter; //Used For Time Check
+	private bool abilityLock = false; //Can't Use Other Abilities While One Is Active
+	Vector3 mousePosition; //Put Cursor Back On Mouse Position After Teleport Is Deactivated
+	Vector3 direction; //Teleport Direction
 
 	#endregion
 	#region Ability_Upgrades
@@ -42,54 +42,51 @@ public class Abilities : MonoBehaviour {
 	};
 	#endregion
 	#region IceShard
-	private Stopwatch iceShardTimer;
-	public GameObject iceShard;
-	GameObject iceShardSelection;
-	public Slider iceShardCooldown;
-	private int iceShardLevel;
+	private Stopwatch iceShardTimer; //Ice Shard Cooldown
+	public GameObject iceShard; //Ice Shard Object
+	GameObject iceShardSelection; //Ice Shard HUD Selection
+	public Slider iceShardCooldown; //Ice Shard Cooldown Visual
+	private int iceShardLevel; //Ice Shard Level
 	#endregion
 	#region Avalanche
-	private Stopwatch avalancheTimer;
-	public GameObject avalanche;
-	GameObject avalancheSelection;
-	public Slider avalancheCooldown;
-	private int avalancheLevel;
+	private Stopwatch avalancheTimer; //Avalanche Cooldown
+	public GameObject avalanche; //Avalanche Object
+	GameObject avalancheSelection; //Avalanche HUD Selection
+	public Slider avalancheCooldown; //Avalanche Cooldown Visual
+	private int avalancheLevel; //Avalanche Level
 	#endregion
 	#region Teleport
-	private Stopwatch teleportTimer;
-	private GameObject teleport;
-	GameObject teleportSelection;
-	public Slider teleportCooldown;
-	private int teleportLevel;
-	private bool activatedTeleport = false;
-	public float teleportLength = 5f;
+	private Stopwatch teleportTimer; //Teleport Cooldown
+	private GameObject teleport; //Teleport Object
+	GameObject teleportSelection; //Teleport HUD Selection
+	public Slider teleportCooldown; //Teleport Cooldown Visual
+	private int teleportLevel; //Teleport Level
+	private bool activatedTeleport = false; //Move Player The Second Time Teleport Is Activated 
 	#endregion
 	#region IceWraith
-	private Stopwatch iceWraithTimer;
-	GameObject iceWraithSelection;
-	public Slider iceWraithCooldown;
-	private int iceWraithLevel;
-	private bool activatedIceWraith = false;
+	private Stopwatch iceWraithTimer; //Ice Wraith Cooldown
+	GameObject iceWraithSelection; //Ice Wraith HUD Selection
+	public Slider iceWraithCooldown; //Ice Wraith Cooldown Visual
+	private int iceWraithLevel; //Ice Wraith Level
+	private bool activatedIceWraith = false; //Drain And Deactivate Ability When This Is True
 	#endregion
 
-	// Use this for initialization
 	void Start () {
 		menu = GetComponent<Menus> ();
 		chiScript = GetComponent<Chi>();
 		stats = GetComponent<Stats>();
 		//Cursor.visible = false;
-		Instantiate (cursor, mousePosition, Quaternion.identity);
-		findObjects ();
-		Reset ();
-		timers ();
-		iceShardCooldown.value = 0;
-		avalancheCooldown.value = 0;
-		teleportCooldown.value = 0;
-		iceWraithCooldown.value = 0;
+		Instantiate (cursor, mousePosition, Quaternion.identity); //Add Game Cursor
+		findObjects (); //Find Objects In Hierarchy
+		Reset (); //Reset Ability Selection
+		timers (); //Instantiate Cooldown timers 
+		iceShardCooldown.value = 0; //Reset Ice Shard Cooldown Visual
+		avalancheCooldown.value = 0; //Reset Avalanche Cooldown Visual
+		teleportCooldown.value = 0; //Reset Teleport Cooldown Visual
+		iceWraithCooldown.value = 0; //Reset Ice Wraith Cooldown Visual
 	}
 
 
-	// Update is called once per frame
 	void Update () {
 		direction = player.position - mousePosition;
 		teleport.transform.position = (player.position - (direction.normalized * teleportUpgrades [0, teleportLevel]));
@@ -143,21 +140,26 @@ public class Abilities : MonoBehaviour {
 		}
 		#endregion
 		#region Cooldown
+
+		//Ice Shard Cooldown Visual
 		if ((float)iceShardTimer.ElapsedMilliseconds == 0) {
 			iceShardCooldown.value = 0;
 		} else {
 			iceShardCooldown.value = iceShardUpgrades [2, iceShardLevel] - (float)iceShardTimer.ElapsedMilliseconds / 1000;
 		}
+		//Avalanche Cooldown Visual
 		if ((float)avalancheTimer.ElapsedMilliseconds == 0) {
 			avalancheCooldown.value = 0;
 		} else {
 			avalancheCooldown.value = avalancheUpgrades[2,avalancheLevel] - (float)avalancheTimer.ElapsedMilliseconds / 1000;
 		}
+		//Teleport Cooldown Visual
 		if ((float)teleportTimer.ElapsedMilliseconds == 0) {
 			teleportCooldown.value = 0;
 		} else {
 			teleportCooldown.value = teleportUpgrades [2, teleportLevel] - (float)teleportTimer.ElapsedMilliseconds / 1000;
 		}
+		//Ice Wraith Cooldown Visual
 		if((float)iceWraithTimer.ElapsedMilliseconds == 0){
 			iceWraithCooldown.value = 0;
 		} else {
@@ -322,7 +324,7 @@ public class Abilities : MonoBehaviour {
 	}
 	//third ability drain
 	private void teleportDrain(){
-		//chiScript.reduceChi (teleportUpgrades[1, teleportLevel]);
+		chiScript.reduceChi (teleportUpgrades[1, teleportLevel]);
 	}
 	#endregion
 
