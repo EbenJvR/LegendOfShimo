@@ -20,12 +20,12 @@ public class Abilities : MonoBehaviour {
 
 	#endregion
 	#region Ability_Upgrades
-	private int[,] iceShardUpgrades = new int[,]{
+	public int[,] iceShardUpgrades = new int[,]{
 		{0,30,40,50,60},//damage
 		{0,15,30,45,50},//cost
 		{0,7,6,5,4}//cooldown
 	};
-	private int[,] avalancheUpgrades = new int[,]{
+	public int[,] avalancheUpgrades = new int[,]{
 		{0,30,40,50,60},//damage
 		{0,45,55,65,75},//cost
 		{0,10,9,8,7}//cooldown
@@ -35,7 +35,7 @@ public class Abilities : MonoBehaviour {
 		{0,25,30,35,40},//cost
 		{0,8,7,6,5}//cooldown
 	};
-	private int[,] iceWraithUpgrades = new int[,]{
+	public int[,] iceWraithUpgrades = new int[,]{
 		{0,20,25,30,35},//damage increase
 		{0,10,12,14,16},//drain cost
 		{0,25,22,19,16}//cooldown
@@ -46,7 +46,7 @@ public class Abilities : MonoBehaviour {
 	public GameObject iceShard; //Ice Shard Object
 	GameObject iceShardSelection; //Ice Shard HUD Selection
 	public Slider iceShardCooldown; //Ice Shard Cooldown Visual
-	private int iceShardLevel; //Ice Shard Level
+	public int iceShardLevel; //Ice Shard Level
 	#endregion
 	#region Avalanche
 	private Stopwatch avalancheTimer; //Avalanche Cooldown
@@ -67,8 +67,8 @@ public class Abilities : MonoBehaviour {
 	private Stopwatch iceWraithTimer; //Ice Wraith Cooldown
 	GameObject iceWraithSelection; //Ice Wraith HUD Selection
 	public Slider iceWraithCooldown; //Ice Wraith Cooldown Visual
-	private int iceWraithLevel; //Ice Wraith Level
-	private bool activatedIceWraith = false; //Drain And Deactivate Ability When This Is True
+	public int iceWraithLevel; //Ice Wraith Level
+	public bool activatedIceWraith = false; //Drain And Deactivate Ability When This Is True
 	#endregion
 
 	void Start () {
@@ -364,7 +364,7 @@ public class Abilities : MonoBehaviour {
 		avalancheSelection = GameObject.Find("Blizzard/Blizzard_Select");
 		teleportSelection = GameObject.Find("Teleport/Teleport_Select");
 		iceWraithSelection = GameObject.Find("Archon/Archon_Select");
-		teleport = GameObject.Find ("StickmanTeleport");
+		teleport = GameObject.Find ("ShimoTeleport");
 
 	}
 

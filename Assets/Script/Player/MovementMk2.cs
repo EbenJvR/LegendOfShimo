@@ -17,9 +17,13 @@ public class MovementMk2 : MonoBehaviour {
 	bool playing; //Pause Movement When Game Is Paused
 	SwordDamage sDmg; //Sword Only Damages When Attack is Pressed
 	Health health; //Add Fall Damage
+	Abilities ability;
+	bool floating = false;
 	private Menus menu; //Check If Game Is Paused
+	float CollideY;
 	
 	void Start () {
+		ability = (Abilities)FindObjectOfType (typeof(Abilities));
 		menu = (Menus)FindObjectOfType (typeof(Menus));
 		health = (Health)FindObjectOfType (typeof(Health));
 		sDmg = (SwordDamage)FindObjectOfType(typeof(SwordDamage));
@@ -28,6 +32,7 @@ public class MovementMk2 : MonoBehaviour {
 		datRigidBody = GetComponent<Rigidbody2D> ();
 		datRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 		datRigidBody.interpolation = RigidbodyInterpolation2D.Extrapolate;
+		CollideY = playerCollider.size.y;
 	}
 
 	
@@ -90,16 +95,22 @@ public class MovementMk2 : MonoBehaviour {
 
 		//Duck
 		if (Input.GetKey (KeyCode.S) && playing == true) {
-			playerCollider.size = new Vector2 (playerCollider.size.x, 2.35f);
+			playerCollider.size = new Vector2 (playerCollider.size.x, CollideY * 0.5f);
 		} else {
-			playerCollider.size = new Vector2 (playerCollider.size.x, 4.7f);
+			playerCollider.size = new Vector2 (playerCollider.size.x, CollideY);
 		}
 
 		//Attack And Play Animation
 		if (Input.GetMouseButtonDown (0) && playing == true) {
-			running.Play ("Attack2.0");
+			running.Play ("Attack");
 			sDmg.CanDamage(true);
 
+		}
+
+		if (ability.activatedIceWraith == true)
+			Ascending ();
+		if (ability.activatedIceWraith == false && floating == true) {
+			Descending ();
 		}
 	}
 	//Check If Player Is Grounded
@@ -129,6 +140,18 @@ public class MovementMk2 : MonoBehaviour {
 			health.Damage((int)(fall+26)*-1);
 		}
 		checkFall = false;
+	}
+	void Ascending(){
+		if(floating == false)
+		running.Play ("Ascending");
+	}
+	void Floating(){
+		running.SetBool("Floating",true);
+		floating = true;
+	}
+	void Descending(){
+		running.SetBool("Floating",false);
+		floating = false;
 	}
 
 }

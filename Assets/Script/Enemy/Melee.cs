@@ -18,6 +18,12 @@ public class Melee : EnemyBaseClass {
 	void Update(){
 		PutInUpdate ();
 	}
+	protected override void Attack(){
+		base.Attack ();
+		enemy.Play ("MeleeAttack");
+		counter = 0;
+		Debug.Log ("Attacked");
+	}
 
 
 
