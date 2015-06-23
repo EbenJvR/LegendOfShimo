@@ -38,7 +38,7 @@ public class Arrow : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Shimo")
 		{
 			GameObject.Destroy (gameObject);
 			healthScript.Damage(10);

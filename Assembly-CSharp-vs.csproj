@@ -53,6 +53,7 @@
      <Compile Include="Assets\Script\Enemy\Archer.cs" />
      <Compile Include="Assets\Script\Enemy\Arrow.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyBaseClass.cs" />
+     <Compile Include="Assets\Script\Enemy\EnemySwordDamage.cs" />
      <Compile Include="Assets\Script\Enemy\Melee.cs" />
      <Compile Include="Assets\Script\Environment\ActivateFallingObject.cs" />
      <Compile Include="Assets\Script\Environment\Checkpoint.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Script\Environment\ParralaxScript.cs" />
      <Compile Include="Assets\Script\Environment\Snow.cs" />
      <Compile Include="Assets\Script\Environment\Spawn.cs" />
+     <Compile Include="Assets\Script\Environment\Water.cs" />
      <Compile Include="Assets\Script\HUD\ButtonsActive.cs" />
      <Compile Include="Assets\Script\HUD\Menus.cs" />
      <Compile Include="Assets\Script\HUD\NormalGame\Abilities.cs" />
@@ -83,6 +85,7 @@
      <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
      <Compile Include="Assets\Script\SaveLoad.cs" />
+     <Compile Include="Assets\Tutorial.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

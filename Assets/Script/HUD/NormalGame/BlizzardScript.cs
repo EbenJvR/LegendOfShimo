@@ -22,7 +22,7 @@ public class BlizzardScript : MonoBehaviour {
 		datRigidBody = GetComponent<Rigidbody2D> ();
 		ColliderY = blizzardCollider.size.y;
 		ColliderX = blizzardCollider.size.x;
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Destroy (gameObject, 2);
 		if (player.position.x < mousePosition.x) {

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Melee : EnemyBaseClass {
-	
+	EnemySwordDamage sDmg;
 //	private XP xpScript;
 	void Start()
 	{
@@ -10,7 +10,8 @@ public class Melee : EnemyBaseClass {
 		health = 1;
 		xpGain = 1;
 		movementSpeed = 5f;
-		alertRange = 50f;
+		alertRange = 10f;
+		sDmg = (EnemySwordDamage)FindObjectOfType(typeof(EnemySwordDamage));
 //		attackSpeed = 2;
 //		attackRange = 2;
 	}
@@ -23,6 +24,7 @@ public class Melee : EnemyBaseClass {
 		enemy.Play ("MeleeAttack");
 		counter = 0;
 		Debug.Log ("Attacked");
+		sDmg.CanDamage(true);
 	}
 
 

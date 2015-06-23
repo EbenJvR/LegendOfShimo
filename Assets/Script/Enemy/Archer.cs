@@ -29,9 +29,9 @@ public class Archer : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		RaycastHit2D hit = Physics2D.Raycast (Head.transform.position,(player.position - Head.transform.position),maxDistance);
-		if (hit.collider.tag == "Player") {
+		if (hit.collider.tag == "Shimo") {
 			Move ();
 		}
 

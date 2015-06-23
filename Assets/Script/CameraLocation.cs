@@ -8,7 +8,7 @@ public class CameraLocation : MonoBehaviour {
 	private Transform target;
 	// Use this for initialization
 	void Start () {
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		target = GameObject.FindGameObjectWithTag ("Shimo").transform;
 	}
 	
 	// Update is called once per frame

@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour {
 		Spawn = GameObject.FindWithTag("Spawn").transform;
 	}
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player") {
+		if (other.tag == "Shimo") {
 			Spawn.transform.position = transform.position;
 			GameObject.Destroy (gameObject);
 		}

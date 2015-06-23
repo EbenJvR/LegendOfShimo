@@ -41,7 +41,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	}
 	protected void PutInUpdate () 
 	{
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		distance = transform.position.x - player.position.x;
 		if (distance < 0)
 			distance *= -1;
@@ -51,12 +51,13 @@ public class EnemyBaseClass : MonoBehaviour {
 		if (playerInRange == false && dead == false) {
 			Patrol();
 		}
-		if (hit.collider.tag == "Player" && dead == false)
+		if (hit.collider.tag == "Shimo" && dead == false)
 		{
 			playerInRange = true;
 			alert.SetActive(true);
 			Move ();
-		}
+		}else if (playerInRange == true && dead == false)
+			Move ();
 		if (distance <= 0.5f && dead == false) {
 			counter += Time.deltaTime;
 			if (counter > 1 && counter < 2) {
@@ -128,7 +129,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	private void Dead(){
 		alert.SetActive (false);
 		enemy.Play ("Dead");
-		enemyCollider.size = new Vector2 (CollideX * 2, CollideY * 0.25f);
+		enemyCollider.size = new Vector2 (CollideX * 3, CollideY * 0.07f);
 		datRigidBody.fixedAngle = false;
 	}
 	IEnumerator WaitForTurn(){

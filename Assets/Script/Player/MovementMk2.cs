@@ -21,6 +21,8 @@ public class MovementMk2 : MonoBehaviour {
 	bool floating = false;
 	private Menus menu; //Check If Game Is Paused
 	float CollideY;
+	private Transform player;
+	Vector3 mousePosition;
 	
 	void Start () {
 		ability = (Abilities)FindObjectOfType (typeof(Abilities));
@@ -64,7 +66,7 @@ public class MovementMk2 : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A) && playing == true) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 			running.SetBool ("RunLeft", true);
-			transform.rotation = Quaternion.Euler(0f, 180f,0f);
+			transform.rotation = Quaternion.Euler (0, 180, 0);
 		} else
 			running.SetBool ("RunLeft", false);
 		
@@ -152,6 +154,9 @@ public class MovementMk2 : MonoBehaviour {
 	void Descending(){
 		running.SetBool("Floating",false);
 		floating = false;
+	}
+	void Damage(int amount){
+		health.Damage (amount);
 	}
 
 }

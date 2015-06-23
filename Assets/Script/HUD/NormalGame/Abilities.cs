@@ -31,8 +31,8 @@ public class Abilities : MonoBehaviour {
 		{0,10,9,8,7}//cooldown
 	};
 	private int[,] teleportUpgrades = new int[,]{
-		{0,2,3,4,5},//range
-		{0,25,30,35,40},//cost
+		{0,4,5,6,7},//range
+		{0,10,15,20,25},//cost
 		{0,8,7,6,5}//cooldown
 	};
 	public int[,] iceWraithUpgrades = new int[,]{
@@ -88,6 +88,7 @@ public class Abilities : MonoBehaviour {
 
 
 	void Update () {
+		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		direction = player.position - mousePosition;
 		teleport.transform.position = (player.position - (direction.normalized * teleportUpgrades [0, teleportLevel]));
 		playing = menu.GetPlaying ();
@@ -167,7 +168,6 @@ public class Abilities : MonoBehaviour {
 		}
 		#endregion
 
-		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		chiAmount = chiScript.checkChi ();
 		iceShardLevel = stats.getIceShardLevel ();
 		avalancheLevel = stats.getAvalanceLevel ();
@@ -359,7 +359,7 @@ public class Abilities : MonoBehaviour {
 
 	//Find Objects
 	private void findObjects(){
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		iceShardSelection = GameObject.Find("Shards/Shards_Select");
 		avalancheSelection = GameObject.Find("Blizzard/Blizzard_Select");
 		teleportSelection = GameObject.Find("Teleport/Teleport_Select");

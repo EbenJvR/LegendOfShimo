@@ -13,7 +13,7 @@ public class Shards : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ability = (Abilities)FindObjectOfType (typeof(Abilities));
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		movement = mousePosition - player.position;
 		movement.x = movement.x * 100;
