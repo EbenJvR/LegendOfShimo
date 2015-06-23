@@ -53,7 +53,7 @@ public class ButtonsActive : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			if(iceShardLevel != 0){
 				if(i < iceShardLevel)
-					Ice[i].image.color = Color.blue;
+					Ice[i].image.color = Color.cyan;
 				if(i == iceShardLevel)
 					Ice[i].interactable = true;
 				else 
@@ -64,7 +64,7 @@ public class ButtonsActive : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			if(avalancheLevel != 0){
 				if(i < avalancheLevel)
-					Avalanche[i].image.color = Color.blue;
+					Avalanche[i].image.color = Color.cyan;
 				if(i == avalancheLevel)
 					Avalanche[i].interactable = true;
 				else 
@@ -75,7 +75,7 @@ public class ButtonsActive : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			if(teleportLevel != 0){
 				if(i < teleportLevel)
-					Teleport[i].image.color = Color.blue;
+					Teleport[i].image.color = Color.cyan;
 				if(i == teleportLevel)
 					Teleport[i].interactable = true;
 				else 
@@ -86,7 +86,7 @@ public class ButtonsActive : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			if(iceWraithLevel != 0){
 				if(i < iceWraithLevel)
-					IceWraith[i].image.color = Color.blue;
+					IceWraith[i].image.color = Color.cyan;
 				if(i == iceWraithLevel)
 					IceWraith[i].interactable = true;
 				else 
