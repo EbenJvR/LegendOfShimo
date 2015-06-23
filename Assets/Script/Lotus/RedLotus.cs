@@ -24,7 +24,6 @@ public class RedLotus : MonoBehaviour {
 			heal = (totalHealth / 100) * percentageOfHeal;
 			healthScript.RestoreHealth(heal);
 			this.gameObject.SetActive(false);
-			Debug.Log("Heal is:" + heal.ToString());
 		}
 
 	}

@@ -41,7 +41,9 @@ public class Shards : MonoBehaviour {
 			other.transform.SendMessage ("Damage", shardDamage);
 			GameObject.Destroy (gameObject);
 			Debug.Log (shardDamage);
-		}else if (other.gameObject.tag == "Ground")
+		} else if (other.gameObject.tag == "Ground") {
+			GameObject.Destroy (gameObject);
+		}else if (other.gameObject.tag == "Ladder")
 			GameObject.Destroy (gameObject);
 	}
 }

@@ -13,7 +13,7 @@ public class IsRollingObjectSpawn : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player" && spawnObject == false) 
+		if (other.tag == "Shimo" && spawnObject == false) 
 		{
 			Debug.Log("Player has passed");
 			//spawningPoint.transform.position in Instantiate will get the position of where it needs to spawn.

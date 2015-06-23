@@ -21,10 +21,10 @@ public class Melee : EnemyBaseClass {
 	}
 	protected override void Attack(){
 		base.Attack ();
+		sDmg.CanDamage(true);
 		enemy.Play ("MeleeAttack");
 		counter = 0;
 		Debug.Log ("Attacked");
-		sDmg.CanDamage(true);
 	}
 
 

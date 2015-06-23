@@ -66,6 +66,9 @@ public class EnemyBaseClass : MonoBehaviour {
 		} else {
 			counter = 0;
 		}
+		if (playerInRange == true) {
+			RemoveCalmAnimation();
+		}
 		if (health <= 0 && dead == false)
 		{
 			Die ();
@@ -124,13 +127,16 @@ public class EnemyBaseClass : MonoBehaviour {
 		health -= value;
 	}
 	protected virtual void Attack (){
-		Debug.Log ("Empty Attack Method");
 	}
 	private void Dead(){
 		alert.SetActive (false);
 		enemy.Play ("Dead");
 		enemyCollider.size = new Vector2 (CollideX * 3, CollideY * 0.07f);
 		datRigidBody.fixedAngle = false;
+	}
+	void RemoveCalmAnimation(){
+		enemy.SetBool ("CalmRight", false);
+		enemy.SetBool ("CalmLeft", false);
 	}
 	IEnumerator WaitForTurn(){
 		if (stop == true && turn == "right") {

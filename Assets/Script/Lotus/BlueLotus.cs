@@ -24,7 +24,6 @@ public class BlueLotus : MonoBehaviour {
 			restoreChi = (totalChi / 100) * percentageOfRestoreChi;
 			chiScript.RestoreChi((int)restoreChi);
 			this.gameObject.SetActive(false);
-			Debug.Log("Restore chi is:" + restoreChi.ToString());
 		}
 		
 	}

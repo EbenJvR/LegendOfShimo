@@ -18,7 +18,6 @@ public class XPLotus : MonoBehaviour {
 		{
 			xpScript.increaseXP(xpGain);
 			this.gameObject.SetActive(false);
-			Debug.Log("XP gain is:" + xpGain.ToString());
 		}
 		
 	}

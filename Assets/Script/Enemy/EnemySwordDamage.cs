@@ -3,9 +3,10 @@ using System.Collections;
 
 public class EnemySwordDamage : MonoBehaviour {
 
-	bool canDamage = false;
+	bool canDamage= true;
 	public void CanDamage(bool value)
 	{
+		Debug.Log ("Changed");
 		canDamage = value;
 	}
 	void OnTriggerEnter2D(Collider2D other)

@@ -19,6 +19,7 @@ public class MovementMk2 : MonoBehaviour {
 	Health health; //Add Fall Damage
 	Abilities ability;
 	bool floating = false;
+	bool climb = false;
 	private Menus menu; //Check If Game Is Paused
 	float CollideY;
 	private Transform player;
@@ -102,6 +103,12 @@ public class MovementMk2 : MonoBehaviour {
 			playerCollider.size = new Vector2 (playerCollider.size.x, CollideY);
 		}
 
+		//Climb
+		if (Input.GetKey(KeyCode.W) && playing == true && climb == true)
+		{
+			transform.position += Vector3.up * speed * Time.deltaTime;
+		}
+
 		//Attack And Play Animation
 		if (Input.GetMouseButtonDown (0) && playing == true) {
 			running.Play ("Attack");
@@ -157,6 +164,25 @@ public class MovementMk2 : MonoBehaviour {
 	}
 	void Damage(int amount){
 		health.Damage (amount);
+	}
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Ladder") {
+			climb = true;
+			datRigidBody.gravityScale = 0;
+			Vector2 v2 = datRigidBody.velocity;
+			v2.y = 0;
+			datRigidBody.velocity = v2;
+
+		}
+	}
+	void OnCollisionExit2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Ladder") {
+			climb = false;
+			datRigidBody.gravityScale = 5;
+			
+		}
 	}
 
 }

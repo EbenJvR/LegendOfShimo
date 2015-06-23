@@ -15,7 +15,6 @@ public class ObjectDamage : MonoBehaviour {
 
 		if(other.gameObject.tag == "Player")
 		{
-			Debug.Log("Touch player");
 			healthScript.Damage(50);
 		}
 	}

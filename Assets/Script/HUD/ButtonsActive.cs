@@ -6,13 +6,17 @@ public class ButtonsActive : MonoBehaviour {
 
 	Stats buttonStat;
 	public Button[] Ice;
+	public Text[] IceText;
 	private int iceShardLevel;
 	public Button[] Avalanche;
+	public Text[] AvalancheText;
 	private int avalancheLevel;
 	public Button[] Teleport;
+	public Text[] TeleportText;
 	private int teleportLevel;
 	public Button[] IceWraith;
 	private int iceWraithLevel;
+	public Text[] IceWraithText;
 	public Button Health;
 	public Text healthText;
 	private int health;
@@ -52,8 +56,10 @@ public class ButtonsActive : MonoBehaviour {
 		//Ice Shard
 		for (int i = 0; i < 4; i++) {
 			if(iceShardLevel != 0){
-				if(i < iceShardLevel)
+				if(i < iceShardLevel){
+					IceText[i].color = Color.white;
 					Ice[i].image.color = Color.cyan;
+				}
 				if(i == iceShardLevel)
 					Ice[i].interactable = true;
 				else 
@@ -63,8 +69,10 @@ public class ButtonsActive : MonoBehaviour {
 		//Avalanche
 		for (int i = 0; i < 4; i++) {
 			if(avalancheLevel != 0){
-				if(i < avalancheLevel)
+				if(i < avalancheLevel){
+					AvalancheText[i].color = Color.white;
 					Avalanche[i].image.color = Color.cyan;
+				}
 				if(i == avalancheLevel)
 					Avalanche[i].interactable = true;
 				else 
@@ -74,8 +82,10 @@ public class ButtonsActive : MonoBehaviour {
 		//Teleport
 		for (int i = 0; i < 4; i++) {
 			if(teleportLevel != 0){
-				if(i < teleportLevel)
+				if(i < teleportLevel){
+					TeleportText[i].color = Color.white;
 					Teleport[i].image.color = Color.cyan;
+				}
 				if(i == teleportLevel)
 					Teleport[i].interactable = true;
 				else 
@@ -85,8 +95,10 @@ public class ButtonsActive : MonoBehaviour {
 		//Ice Wraith
 		for (int i = 0; i < 4; i++) {
 			if(iceWraithLevel != 0){
-				if(i < iceWraithLevel)
+				if(i < iceWraithLevel){
+					IceWraithText[i].color = Color.white;
 					IceWraith[i].image.color = Color.cyan;
+				}
 				if(i == iceWraithLevel)
 					IceWraith[i].interactable = true;
 				else 

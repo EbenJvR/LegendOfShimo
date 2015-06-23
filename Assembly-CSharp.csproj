@@ -57,13 +57,16 @@
      <Compile Include="Assets\Script\Enemy\EnemySwordDamage.cs" />
      <Compile Include="Assets\Script\Enemy\Melee.cs" />
      <Compile Include="Assets\Script\Environment\ActivateFallingObject.cs" />
+     <Compile Include="Assets\Script\Environment\BuildCheckpoint.cs" />
      <Compile Include="Assets\Script\Environment\Checkpoint.cs" />
      <Compile Include="Assets\Script\Environment\Death.cs" />
      <Compile Include="Assets\Script\Environment\DeathFromAbove.cs" />
+     <Compile Include="Assets\Script\Environment\DropLadder.cs" />
      <Compile Include="Assets\Script\Environment\FallingObject.cs" />
      <Compile Include="Assets\Script\Environment\ParralaxScript.cs" />
      <Compile Include="Assets\Script\Environment\Snow.cs" />
      <Compile Include="Assets\Script\Environment\Spawn.cs" />
+     <Compile Include="Assets\Script\Environment\Tutorial.cs" />
      <Compile Include="Assets\Script\Environment\Water.cs" />
      <Compile Include="Assets\Script\HUD\ButtonsActive.cs" />
      <Compile Include="Assets\Script\HUD\Menus.cs" />
@@ -86,7 +89,6 @@
      <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
      <Compile Include="Assets\Script\SaveLoad.cs" />
-     <Compile Include="Assets\Tutorial.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

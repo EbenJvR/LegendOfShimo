@@ -17,4 +17,14 @@ public class ActivateFallingObject : MonoBehaviour {
 			Rigid.gravityScale = 3;
 		}
 	}
+	void OnCollisionEnter2D(Collision2D other){
+		if(other.gameObject.tag == "Shimo")
+		{
+			StartCoroutine ("Break");
+		}
+	}
+	IEnumerator Break(){
+		yield return(new WaitForSeconds (2));
+		Rigid.isKinematic = false;
+	}
 }

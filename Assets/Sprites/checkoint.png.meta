@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 515aa747877d160488e2ebfcf6d34989
+timeCreated: 1435099317
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: checkoint_0
+    21300002: checkoint_1
+    21300004: checkoint_2
+    21300006: checkoint_3
+    21300008: checkoint_4
+    21300010: checkoint_5
+    21300012: checkoint_6
+    21300014: checkoint_7
+    21300016: checkoint_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: checkoint_0
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 0
+        width: 93
+        height: 1024
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_1
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 852
+        width: 137
+        height: 171
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_2
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 771
+        width: 311
+        height: 250
+      alignment: 9
+      pivot: {x: .0523995645, y: .0511389151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_3
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 324
+        width: 351
+        height: 459
+      alignment: 9
+      pivot: {x: .924919963, y: .0419909917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 12
+        width: 460
+        height: 311
+      alignment: 9
+      pivot: {x: .86746347, y: .0569666661}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_5
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 670
+        width: 226
+        height: 339
+      alignment: 9
+      pivot: {x: .939961553, y: .0684187934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 692
+        width: 228
+        height: 332
+      alignment: 9
+      pivot: {x: .176038429, y: .0807114542}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_7
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 327
+        width: 276
+        height: 359
+      alignment: 9
+      pivot: {x: .278698534, y: .0410255715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkoint_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 4
+        width: 432
+        height: 321
+      alignment: 9
+      pivot: {x: .0561104268, y: .0397930145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

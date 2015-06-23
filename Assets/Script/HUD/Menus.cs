@@ -49,8 +49,7 @@ public class Menus : MonoBehaviour {
 	}
 
 	public void StartLevel(){
-		Debug.Log ("Clicked");
-		//Application.LoadLevel ("Test");
+		Application.LoadLevel ("Stage1Level1");
 	}
 
 	public void Quit(){
