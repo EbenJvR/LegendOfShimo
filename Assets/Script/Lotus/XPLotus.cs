@@ -14,7 +14,7 @@ public class XPLotus : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player") 
+		if (other.tag == "Shimo") 
 		{
 			xpScript.increaseXP(xpGain);
 			this.gameObject.SetActive(false);

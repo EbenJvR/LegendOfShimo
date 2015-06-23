@@ -15,7 +15,7 @@ public class Spawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		playerPosition = GameObject.FindWithTag("Player").transform;
+		playerPosition = GameObject.FindWithTag("Shimo").transform;
 		currentHealth = health.checkHealth ();
 		if (currentHealth <= 0) {
 			playerPosition.transform.position = transform.position;

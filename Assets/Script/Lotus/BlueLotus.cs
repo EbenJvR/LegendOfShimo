@@ -18,7 +18,7 @@ public class BlueLotus : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player") 
+		if (other.tag == "Shimo") 
 		{
 			totalChi = stats.totalChi;
 			restoreChi = (totalChi / 100) * percentageOfRestoreChi;

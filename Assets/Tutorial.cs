@@ -5,19 +5,18 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour {
 
 	public string message;
-	public GameObject Board;
+	public Slider Board;
 	public Text TutorialText;
-	Transform start;
 
 	void Start(){
-		start.position = Board.transform.position;
+		Board.maxValue = 4;
+		Board.value = 0;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Shimo")
 		{
-			TutorialText.text = message;
 			StartCoroutine ("Up");
 //			Board.transform.position += Vector3.up * 12000 * Time.deltaTime;
 		}
@@ -33,21 +32,19 @@ public class Tutorial : MonoBehaviour {
 	IEnumerator Up(){
 		for (int i = 0; i < 4; i++) {
 			yield return(new WaitForSeconds (0.05f));
-			Board.transform.position += Vector3.up * 3000 * Time.deltaTime;
+			Board.value++;
 		}
+		TutorialText.text = message;
+		if (Board.value != Board.maxValue)
+			Board.value = Board.maxValue;
 	}
 	IEnumerator Down(){
+		TutorialText.text = "";
 		for (int i = 0; i < 4; i++) {
 			yield return(new WaitForSeconds (0.05f));
-			Board.transform.position += Vector3.down * 3000 * Time.deltaTime;
+			Board.value--;
 		}
-		TutorialText.text = "";
-		CheckPosition ();
-	}
-	void CheckPosition(){
-		if (Board.transform.position != start.transform.position) {
-			Board.transform.position = start.position;
-			Debug.Log ("Changed");
-		}
+		if (Board.value != 0)
+			Board.value = 0;
 	}
 }

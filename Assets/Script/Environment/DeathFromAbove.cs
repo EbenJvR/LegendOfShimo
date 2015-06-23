@@ -11,7 +11,7 @@ public class DeathFromAbove : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Shimo")
 		{
 			damage.Damage(90);
 			Destroy(transform.parent.gameObject);
