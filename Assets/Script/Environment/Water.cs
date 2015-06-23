@@ -13,7 +13,7 @@ public class Water : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player") {
+		if (other.tag == "Shimo") {
 			other.transform.SendMessage ("Damage", 500);
 		}
 		if (other.gameObject.tag == "Blizzard") {

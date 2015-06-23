@@ -52,6 +52,7 @@
      <Compile Include="Assets\Script\CursorMovement.cs" />
      <Compile Include="Assets\Script\Enemy\Archer.cs" />
      <Compile Include="Assets\Script\Enemy\Arrow.cs" />
+     <Compile Include="Assets\Script\Enemy\Dummy.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyBaseClass.cs" />
      <Compile Include="Assets\Script\Enemy\EnemySwordDamage.cs" />
      <Compile Include="Assets\Script\Enemy\Melee.cs" />

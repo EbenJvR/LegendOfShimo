@@ -9,7 +9,7 @@ public class Melee : EnemyBaseClass {
 		PutInStart ();
 		health = 1;
 		xpGain = 1;
-		movementSpeed = 5f;
+		movementSpeed = 4f;
 		alertRange = 10f;
 		sDmg = (EnemySwordDamage)FindObjectOfType(typeof(EnemySwordDamage));
 //		attackSpeed = 2;
