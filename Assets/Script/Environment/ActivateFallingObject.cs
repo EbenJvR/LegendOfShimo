@@ -26,5 +26,7 @@ public class ActivateFallingObject : MonoBehaviour {
 	IEnumerator Break(){
 		yield return(new WaitForSeconds (2));
 		Rigid.isKinematic = false;
+		yield return(new WaitForSeconds (1));
+		GameObject.Destroy (gameObject);
 	}
 }

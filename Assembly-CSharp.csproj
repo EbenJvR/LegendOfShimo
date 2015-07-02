@@ -65,6 +65,7 @@
      <Compile Include="Assets\Script\Environment\FallingObject.cs" />
      <Compile Include="Assets\Script\Environment\ParralaxScript.cs" />
      <Compile Include="Assets\Script\Environment\Snow.cs" />
+     <Compile Include="Assets\Script\Environment\SoundTest.cs" />
      <Compile Include="Assets\Script\Environment\Spawn.cs" />
      <Compile Include="Assets\Script\Environment\Tutorial.cs" />
      <Compile Include="Assets\Script\Environment\Water.cs" />

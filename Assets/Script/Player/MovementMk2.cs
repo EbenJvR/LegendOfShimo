@@ -22,10 +22,12 @@ public class MovementMk2 : MonoBehaviour {
 	bool climb = false;
 	private Menus menu; //Check If Game Is Paused
 	float CollideY;
+	AudioSource playerAudio;
 	private Transform player;
 	Vector3 mousePosition;
 	
 	void Start () {
+		playerAudio = GetComponent<AudioSource>();
 		ability = (Abilities)FindObjectOfType (typeof(Abilities));
 		menu = (Menus)FindObjectOfType (typeof(Menus));
 		health = (Health)FindObjectOfType (typeof(Health));
@@ -111,6 +113,10 @@ public class MovementMk2 : MonoBehaviour {
 
 		//Attack And Play Animation
 		if (Input.GetMouseButtonDown (0) && playing == true) {
+			playerAudio.clip = Resources.Load ("Audio/Sword/Draw") as AudioClip;
+			if(!playerAudio.isPlaying){
+			playerAudio.Play();
+			}
 			running.Play ("Attack");
 			sDmg.CanDamage(true);
 
