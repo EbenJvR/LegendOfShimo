@@ -7,6 +7,7 @@ public class MovementMk2 : MonoBehaviour {
 	private Animator running; //Running and Attacking Animation
 	BoxCollider2D playerCollider; //Used for Duck
 	Rigidbody2D datRigidBody; //Used For Double Jump
+	ParticleSystem teleportParticle;
 	int currentJump = 0; //Check If Current Jump Is A Double Jump
 	float fallVelocity = 0; //Check Fall damage
 	public float speed = 10f; //Movement Speed
@@ -35,6 +36,7 @@ public class MovementMk2 : MonoBehaviour {
 		running = GetComponent<Animator> ();
 		playerCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
+		teleportParticle = GetComponent<ParticleSystem> ();
 		datRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 		datRigidBody.interpolation = RigidbodyInterpolation2D.Extrapolate;
 		CollideY = playerCollider.size.y;
@@ -196,6 +198,10 @@ public class MovementMk2 : MonoBehaviour {
 		if(!playerAudio.isPlaying){
 			playerAudio.Play();
 		}
+	}
+	public void PlayTeleport()
+	{
+		teleportParticle.Play ();
 	}
 
 }

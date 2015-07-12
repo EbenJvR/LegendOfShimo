@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Abilities : MonoBehaviour {
 
 	#region VariableDeclarations
+	MovementMk2 teleportParticle;
 	private Chi chiScript; //Abilities Use Chi
 	private Stats stats; //Ability Levels
 	private Menus menu; //Check If Game Is Paused
@@ -75,6 +76,7 @@ public class Abilities : MonoBehaviour {
 		menu = GetComponent<Menus> ();
 		chiScript = GetComponent<Chi>();
 		stats = GetComponent<Stats>();
+		teleportParticle = (MovementMk2)FindObjectOfType (typeof(MovementMk2));
 		//Cursor.visible = false;
 		Instantiate (cursor, mousePosition, Quaternion.identity); //Add Game Cursor
 		findObjects (); //Find Objects In Hierarchy
@@ -310,6 +312,7 @@ public class Abilities : MonoBehaviour {
 		abilityLock = false;
 		player.position = Vector3.MoveTowards (player.position, teleport.transform.position, 100);
 		player.transform.position = new Vector3 (player.position.x, player.position.y, -1);
+		teleportParticle.PlayTeleport ();
 		Time.timeScale = 1F;
 		teleport.SetActive(false);
 		activatedTeleport = false;
