@@ -51,13 +51,14 @@ public class EnemyBaseClass : MonoBehaviour {
 		if (playerInRange == false && dead == false) {
 			Patrol();
 		}
-		if (hit.collider.tag == "Shimo" && dead == false)
-		{
-			playerInRange = true;
-			alert.SetActive(true);
-			Move ();
-		}else if (playerInRange == true && dead == false)
-			Move ();
+		if (hit.collider != null) {
+			if (hit.collider.tag == "Shimo" && dead == false) {
+				playerInRange = true;
+				alert.SetActive (true);
+				Move ();
+			} else if (playerInRange == true && dead == false)
+				Move ();
+		}
 		if (distance <= 0.5f && dead == false) {
 			counter += Time.deltaTime;
 			if (counter > 1 && counter < 2) {

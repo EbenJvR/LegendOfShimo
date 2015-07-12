@@ -113,10 +113,6 @@ public class MovementMk2 : MonoBehaviour {
 
 		//Attack And Play Animation
 		if (Input.GetMouseButtonDown (0) && playing == true) {
-			playerAudio.clip = Resources.Load ("Audio/Sword/Draw") as AudioClip;
-			if(!playerAudio.isPlaying){
-			playerAudio.Play();
-			}
 			running.Play ("Attack");
 			sDmg.CanDamage(true);
 
@@ -188,6 +184,17 @@ public class MovementMk2 : MonoBehaviour {
 			climb = false;
 			datRigidBody.gravityScale = 5;
 			
+		}
+	}
+	void StopSound()
+	{
+		playerAudio.Stop ();
+	}
+	void PlaySound()
+	{
+		playerAudio.clip = Resources.Load ("Audio/Sword/Draw") as AudioClip;
+		if(!playerAudio.isPlaying){
+			playerAudio.Play();
 		}
 	}
 
