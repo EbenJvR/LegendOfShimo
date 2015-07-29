@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour {
 		transform.Translate (Vector3.up * 10 * Time.deltaTime);
 		GameObject.Destroy (gameObject, 2);
 		healthScript = (Health)FindObjectOfType (typeof(Health));
-		player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Shimo").transform;
 		movement = player.position - transform.position;
 		movement.x = movement.x * 100;
 		movement.y = movement.y * 100;

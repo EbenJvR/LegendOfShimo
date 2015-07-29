@@ -10,7 +10,8 @@ public class MovementMk2 : MonoBehaviour {
 	ParticleSystem teleportParticle;
 	int currentJump = 0; //Check If Current Jump Is A Double Jump
 	float fallVelocity = 0; //Check Fall damage
-	public float speed = 10f; //Movement Speed
+	float speed; //Movement Speed
+	public float startSpeed = 10f;
 	public float jumpForce = 10000f; //First Jump Height
 	public float doubleJumpForce = 10000f; //Double Jump Height
 	public bool isGrounded = false; //Check If The Player Is Grounded
@@ -40,10 +41,12 @@ public class MovementMk2 : MonoBehaviour {
 		datRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 		datRigidBody.interpolation = RigidbodyInterpolation2D.Extrapolate;
 		CollideY = playerCollider.size.y;
+		speed = startSpeed;
 	}
 
 	
 	void Update () {
+		Debug.Log (speed);
 		playing = menu.GetPlaying ();
 
 		//Draw Check Ground Ray
@@ -202,6 +205,27 @@ public class MovementMk2 : MonoBehaviour {
 	public void PlayTeleport()
 	{
 		teleportParticle.Play ();
+	}
+	public void SetMovement(float value)
+	{
+		StartCoroutine ("ReduceSpeed",value);
+
+	}
+	public void ReturnMovement()
+	{
+		StartCoroutine ("IncreaseSpeed",startSpeed);
+	}
+	IEnumerator ReduceSpeed(float value){
+		for (float i = speed; i > value; i--) {
+			yield return(new WaitForSeconds (0.15f));
+			speed -= 1;
+		}
+	}
+	IEnumerator IncreaseSpeed(float value){
+		for (float i = speed; i < value; i++) {
+			yield return(new WaitForSeconds (0.15f));
+			speed += 1;
+		}
 	}
 
 }

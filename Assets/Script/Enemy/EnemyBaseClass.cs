@@ -18,6 +18,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	public GameObject alert;
 	private bool playerInRange;
 	public GameObject rayOrigin;
+//	public GameObject Feet;
 	public Ray2D rangeRay;
 	public RaycastHit2D rayHit;
 	protected Animator enemy;
@@ -28,6 +29,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	float distance;
 	protected float counter;
 	bool stop = false;
+	public bool canMove = true;
 
 	protected void PutInStart () {
 		xpScript = (XP)FindObjectOfType (typeof(XP));
@@ -49,17 +51,24 @@ public class EnemyBaseClass : MonoBehaviour {
 		Debug.DrawRay (rayOrigin.transform.position, (player.transform.position-rayOrigin.transform.position), Color.red); 
 		RaycastHit2D hit = Physics2D.Raycast (rayOrigin.transform.position,(player.position - rayOrigin.transform.position),alertRange);
 		if (playerInRange == false && dead == false) {
-			Patrol();
+			if(canMove == true)
+				Patrol();
 		}
+//		if(!IsGrounded())
+//		datRigidBody.AddForce (Vector2.up * 600);
+
 		if (hit.collider != null) {
 			if (hit.collider.tag == "Shimo" && dead == false) {
 				playerInRange = true;
 				alert.SetActive (true);
-				Move ();
+				if(canMove == true)
+					Move ();
+
 			} else if (playerInRange == true && dead == false)
-				Move ();
+				if(canMove == true)
+					Move ();
 		}
-		if (distance <= 0.5f && dead == false) {
+		if (distance <= attackRange && dead == false) {
 			counter += Time.deltaTime;
 			if (counter > 1 && counter < 2) {
 				Attack ();
@@ -74,15 +83,25 @@ public class EnemyBaseClass : MonoBehaviour {
 		{
 			Die ();
 		}
+		LookAtPlayer ();
+	}
+	private void LookAtPlayer()
+	{
+		if (player.position.x < transform.position.x) {
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+		} else if (player.position.x > transform.position.x) {
+			transform.rotation = Quaternion.Euler (0, 180, 0);
+		}
+
 	}
 	private void Move()
 	{
-		if (player.position.x < transform.position.x && distance > 0.5f) {
+		if (player.position.x < transform.position.x) {
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 			transform.position += Vector3.left * movementSpeed * Time.deltaTime;
 			enemy.SetBool ("AlertLeft", true);
 			enemy.SetBool ("AlertRight", false);
-		} else if (player.position.x > transform.position.x && distance > 0.5f) {
+		} else if (player.position.x > transform.position.x) {
 			transform.rotation = Quaternion.Euler (0, 180, 0);
 			transform.position += Vector3.right * movementSpeed * Time.deltaTime;
 			enemy.SetBool ("AlertLeft", true);
@@ -117,6 +136,10 @@ public class EnemyBaseClass : MonoBehaviour {
 			StartCoroutine ("WaitForTurn");
 		}
 	}
+//	bool IsGrounded()
+//	{
+//		return Physics2D.Raycast (Feet.transform.position, -Vector2.up, 0.2f, LayerMask.GetMask("Ground"));
+//	}
 	private void Die()
 	{
 		enemy.Play ("Die");

@@ -11,6 +11,7 @@ public class Melee : EnemyBaseClass {
 		xpGain = 1;
 		movementSpeed = 4f;
 		alertRange = 10f;
+		attackRange = 0.5f;
 		sDmg = (EnemySwordDamage)FindObjectOfType(typeof(EnemySwordDamage));
 //		attackSpeed = 2;
 //		attackRange = 2;

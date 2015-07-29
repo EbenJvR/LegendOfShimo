@@ -3,13 +3,19 @@ using System.Collections;
 
 public class Snow : MonoBehaviour {
 
-	float snowMovement;
+	public float snowMovement;
 
-	void OnTriggerEnter2d(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.tag == "Player"){
+		if(other.gameObject.tag == "Shimo"){
 		Debug.Log ("Walked through Snow");
 		other.transform.SendMessage("SetMovement", snowMovement);
+		}
+	}
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "Shimo") {
+			other.transform.SendMessage("ReturnMovement");
 		}
 	}
 }

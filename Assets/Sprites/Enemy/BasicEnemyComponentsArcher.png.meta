@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: a671947c4430d674f8a6df382afc200a
+timeCreated: 1438043675
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ArcherHead
+    21300002: ArcherFoot
+    21300004: ArcherTorso
+    21300006: ArcherArm
+    21300008: ArcherLeg
+    21300010: ArcherHand
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ArcherHead
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1740
+        width: 332
+        height: 487
+      alignment: 9
+      pivot: {x: .753900945, y: .129091993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcherFoot
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1689
+        width: 210
+        height: 211
+      alignment: 9
+      pivot: {x: .717905402, y: .865258694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcherTorso
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 1414
+        width: 197
+        height: 278
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcherArm
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1461
+        width: 103
+        height: 184
+      alignment: 9
+      pivot: {x: .616914928, y: .827232003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcherLeg
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1197
+        width: 145
+        height: 258
+      alignment: 9
+      pivot: {x: .533219516, y: .854729235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcherHand
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1134
+        width: 103
+        height: 213
+      alignment: 9
+      pivot: {x: .616913736, y: .83921504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
