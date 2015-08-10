@@ -5,17 +5,18 @@ using UnityEngine.UI;
 public class ButtonsActive : MonoBehaviour {
 
 	Stats buttonStat;
+	Menus warning;
 	public Button[] Ice;
 	public Text[] IceText;
-	private int iceShardLevel;
+	public int iceShardLevel;
 	public Button[] Avalanche;
 	public Text[] AvalancheText;
-	private int avalancheLevel;
+	public int avalancheLevel;
 	public Button[] Teleport;
 	public Text[] TeleportText;
-	private int teleportLevel;
+	public int teleportLevel;
 	public Button[] IceWraith;
-	private int iceWraithLevel;
+	public int iceWraithLevel;
 	public Text[] IceWraithText;
 	public Button Health;
 	public Text healthText;
@@ -24,11 +25,12 @@ public class ButtonsActive : MonoBehaviour {
 	public Text chiText;
 	private int chi;
 	public Text pointText;
-	private int points;
+	public int points;
 
 	
 	void Start () {
 		buttonStat = GetComponent<Stats>();
+		warning = GetComponent<Menus>();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -135,20 +137,16 @@ public class ButtonsActive : MonoBehaviour {
 	}
 
 	public void LevelIceShard(){
-		iceShardLevel++;
-		points--;
+		warning.UpgradeWarningShow (1,buttonStat.getIceShardLevel ());
 	}
 	public void LevelAvalanche(){
-		avalancheLevel++;
-		points--;
+		warning.UpgradeWarningShow (2,buttonStat.getAvalanceLevel ());
 	}
 	public void LevelTeleport(){
-		teleportLevel++;
-		points--;
+		warning.UpgradeWarningShow (3,buttonStat.getTeleportLevel ());
 	}
 	public void LevelIceWraith(){
-		iceWraithLevel++;
-		points--;
+		warning.UpgradeWarningShow (4,buttonStat.getIceWraithLevel ());
 	}
 	public void LevelHealth(){
 		health += 10;

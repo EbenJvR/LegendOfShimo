@@ -15,6 +15,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	private string turn = "left";
 	protected float alertRange;
 	private XP xpScript;
+	private Stats stat;
 	public GameObject alert;
 	private bool playerInRange;
 	public GameObject rayOrigin;
@@ -33,6 +34,7 @@ public class EnemyBaseClass : MonoBehaviour {
 
 	protected void PutInStart () {
 		xpScript = (XP)FindObjectOfType (typeof(XP));
+		stat = (Stats)FindObjectOfType (typeof(Stats));
 		enemyCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
 		enemy = GetComponent<Animator> ();
@@ -58,15 +60,17 @@ public class EnemyBaseClass : MonoBehaviour {
 //		datRigidBody.AddForce (Vector2.up * 600);
 
 		if (hit.collider != null) {
-			if (hit.collider.tag == "Shimo" && dead == false) {
-				playerInRange = true;
-				alert.SetActive (true);
-				if(canMove == true)
-					Move ();
+			if(distance >= attackRange){
+				if (hit.collider.tag == "Shimo" && dead == false) {
+					playerInRange = true;
+					alert.SetActive (true);
+					if(canMove == true)
+						Move ();
 
-			} else if (playerInRange == true && dead == false)
-				if(canMove == true)
-					Move ();
+				} else if (playerInRange == true && dead == false)
+					if(canMove == true)
+						Move ();
+			}
 		}
 		if (distance <= attackRange && dead == false) {
 			counter += Time.deltaTime;
@@ -83,6 +87,7 @@ public class EnemyBaseClass : MonoBehaviour {
 		{
 			Die ();
 		}
+		if(dead == false)
 		LookAtPlayer ();
 	}
 	private void LookAtPlayer()
@@ -153,6 +158,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	protected virtual void Attack (){
 	}
 	private void Dead(){
+		stat.kills++;
 		alert.SetActive (false);
 		enemy.Play ("Dead");
 		enemyCollider.size = new Vector2 (CollideX * 3, CollideY * 0.07f);

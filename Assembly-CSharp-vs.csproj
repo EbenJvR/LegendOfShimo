@@ -56,6 +56,7 @@
      <Compile Include="Assets\Script\Enemy\Dummy.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyBaseClass.cs" />
      <Compile Include="Assets\Script\Enemy\EnemySwordDamage.cs" />
+     <Compile Include="Assets\Script\Enemy\KillzoneEnemies\KillZoneMelee.cs" />
      <Compile Include="Assets\Script\Enemy\Melee.cs" />
      <Compile Include="Assets\Script\Environment\ActivateFallingObject.cs" />
      <Compile Include="Assets\Script\Environment\BuildCheckpoint.cs" />
@@ -64,6 +65,8 @@
      <Compile Include="Assets\Script\Environment\DeathFromAbove.cs" />
      <Compile Include="Assets\Script\Environment\DropLadder.cs" />
      <Compile Include="Assets\Script\Environment\FallingObject.cs" />
+     <Compile Include="Assets\Script\Environment\KillzoneActivate.cs" />
+     <Compile Include="Assets\Script\Environment\LookActivate.cs" />
      <Compile Include="Assets\Script\Environment\ParralaxScript.cs" />
      <Compile Include="Assets\Script\Environment\Snow.cs" />
      <Compile Include="Assets\Script\Environment\SoundTest.cs" />
@@ -78,6 +81,7 @@
      <Compile Include="Assets\Script\HUD\NormalGame\Health.cs" />
      <Compile Include="Assets\Script\HUD\NormalGame\Shards.cs" />
      <Compile Include="Assets\Script\HUD\NormalGame\XP.cs" />
+     <Compile Include="Assets\Script\HUD\UpgradeScreen.cs" />
      <Compile Include="Assets\Script\HUD\UpgradeStats.cs" />
      <Compile Include="Assets\Script\Lotus\BlueLotus.cs" />
      <Compile Include="Assets\Script\Lotus\RedLotus.cs" />
@@ -91,6 +95,11 @@
      <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
      <Compile Include="Assets\Script\SaveLoad.cs" />
+     <Compile Include="Assets\Scripts\HealthScript.cs" />
+     <Compile Include="Assets\Scripts\MoveScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\ShotScript.cs" />
+     <Compile Include="Assets\Scripts\WeaponScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

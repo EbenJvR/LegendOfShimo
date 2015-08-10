@@ -14,7 +14,7 @@ public class XP : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		xpStat = GetComponent<Stats>();
-		xp[0] = 10;
+		xp[0] = 1;
 		xp[1] = 10;
 		xp[2] = 10;
 		xpSlider.maxValue = xp [xpStat.getLevel()];
@@ -38,6 +38,7 @@ public class XP : MonoBehaviour {
 		xpStat.setPoints (points);
 		level = xpStat.getLevel () + 1;
 		xpStat.setLevel (level);
+		xpStat.increasePoints (1);
 		xpStat.setCurrentXp(0);
 		xpSlider.maxValue = xp [xpStat.getLevel()];
 		Debug.Log ("Leveld");
@@ -45,5 +46,12 @@ public class XP : MonoBehaviour {
 
 	private void FindObjects(){
 
+	}
+	public int ReturnMaxXP(){
+		int x = xp [xpStat.getLevel ()];
+		if (x != null)
+			return x;
+		else
+			return -1;
 	}
 }

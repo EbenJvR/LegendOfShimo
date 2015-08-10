@@ -25,7 +25,6 @@ public class Melee : EnemyBaseClass {
 		sDmg.CanDamage(true);
 		enemy.Play ("MeleeAttack");
 		counter = 0;
-		Debug.Log ("Attacked");
 	}
 
 

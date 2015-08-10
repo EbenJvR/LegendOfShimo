@@ -31,7 +31,7 @@ public class Abilities : MonoBehaviour {
 		{0,45,55,65,75},//cost
 		{0,10,9,8,7}//cooldown
 	};
-	private int[,] teleportUpgrades = new int[,]{
+	public int[,] teleportUpgrades = new int[,]{
 		{0,4,5,6,7},//range
 		{0,10,15,20,25},//cost
 		{0,8,7,6,5}//cooldown

@@ -3,7 +3,13 @@ using System.Collections;
 
 public class SwordDamage : MonoBehaviour {
 
+	Stats damage;
 	bool canDamage = false;
+
+	void Start() {
+		damage = (Stats)FindObjectOfType (typeof(Stats));
+	}
+
 	public void CanDamage(bool value)
 	{
 		canDamage = value;
@@ -12,7 +18,7 @@ public class SwordDamage : MonoBehaviour {
 	{
 		if (canDamage) {
 			if (other.gameObject.tag == "Enemy") {
-				other.transform.SendMessage ("Damage", 10);
+				other.transform.SendMessage ("Damage", damage.meleeDamage);
 				CanDamage(false);
 			}
 		}

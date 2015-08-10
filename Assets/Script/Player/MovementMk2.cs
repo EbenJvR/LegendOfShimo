@@ -12,8 +12,18 @@ public class MovementMk2 : MonoBehaviour {
 	float fallVelocity = 0; //Check Fall damage
 	float speed; //Movement Speed
 	public float startSpeed = 10f;
-	public float jumpForce = 10000f; //First Jump Height
-	public float doubleJumpForce = 10000f; //Double Jump Height
+	private float jumpForce = 10f;
+	public float JumpForce {
+		get {
+			return jumpForce;
+		}
+		set {
+			jumpForce = value;
+		}
+	}
+
+ //First Jump Height
+	public float doubleJumpForce = 1f; //Double Jump Height
 	public bool isGrounded = false; //Check If The Player Is Grounded
 	bool checkFall = false; //Make Sure Fall Damage Is Apllied At Right Time
 	bool playing; //Pause Movement When Game Is Paused
@@ -46,7 +56,6 @@ public class MovementMk2 : MonoBehaviour {
 
 	
 	void Update () {
-		Debug.Log (speed);
 		playing = menu.GetPlaying ();
 
 		//Draw Check Ground Ray
@@ -132,12 +141,12 @@ public class MovementMk2 : MonoBehaviour {
 	//Check If Player Is Grounded
 	bool IsGrounded()
 	{
-		return Physics2D.Raycast (feet.transform.position, -Vector2.up, 0.2f, LayerMask.GetMask("Ground"));
+		return Physics2D.Raycast (transform.position, -Vector2.up, 0.6f, LayerMask.GetMask("Ground"));
 	}
 	//Jump once
 	void Jump()
 	{
-		datRigidBody.AddForce (Vector2.up * jumpForce);
+		datRigidBody.velocity = new Vector2(datRigidBody.velocity.x,jumpForce);
 	}
 	//Double Jump
 	void AirJump()

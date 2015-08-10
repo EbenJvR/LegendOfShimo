@@ -25,7 +25,6 @@ public class ArcherBase : EnemyBaseClass {
 		Instantiate (arrow, transform.position, Quaternion.identity);
 		enemy.Play ("ArcherAttack");
 		counter = 0;
-		Debug.Log ("Attacked");
 		enemy.SetBool ("Alerted", true);
 	}
 }

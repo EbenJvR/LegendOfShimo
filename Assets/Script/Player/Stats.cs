@@ -7,6 +7,7 @@ public class Stats : MonoBehaviour{
 	public int currentHealth = 100; //Current Player Health
 	public int totalChi = 100; //Total Player Chi
 	public int currentChi = 100; //Current Player Chi
+	public int meleeDamage = 10; //Current Player Melee Damage
 	public int currentLevel = 0; //Current Player Level
 	public int currentXp = 0; //Current Player XP value
 	public int levelPoints = 50; //Current Player Level Up Points
@@ -14,7 +15,9 @@ public class Stats : MonoBehaviour{
 	public int avalanceLevel = 1; //Avalanche Level
 	public int teleportLevel = 1; //Teleport Level
 	public int iceWraithLevel = 1; //Ice Wraith Level
+	public int points = 3; //Points used to increase Health,Chi or Melee damage
 	private int[] statAmount = new int[15]; //Save Array
+	public int kills;
 
 	#region Health
 	//Total Health
@@ -94,6 +97,17 @@ public class Stats : MonoBehaviour{
 	//Increase Current Xp
 	public void increaseCurrentXp(int value){
 		currentXp += value;
+	}
+	//Points
+	public void increasePoints(int value){
+		points += value;
+	}
+	public void decreasePoints(int value){
+		points -= value;
+	}
+	//Melee Damage
+	public void increaseMeleeDamage(int value){
+		meleeDamage += value;
 	}
 	#endregion
 	#region Upgrades
