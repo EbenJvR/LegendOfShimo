@@ -203,6 +203,7 @@ public class MovementMk2 : MonoBehaviour {
 	void StopSound()
 	{
 		playerAudio.Stop ();
+		sDmg.CanDamage (false);
 	}
 	void PlaySound()
 	{
@@ -235,6 +236,30 @@ public class MovementMk2 : MonoBehaviour {
 			yield return(new WaitForSeconds (0.15f));
 			speed += 1;
 		}
+	}
+	void SloMo(){
+		Time.timeScale = 0.3F;
+	}
+	void RemoveSloMo(){
+		Time.timeScale = 1F;
+	}
+	public void PlayIceShard(){
+		running.Play ("IceShard");
+	}
+	void ShootIceShard(){
+		ability.ShootShard ();
+	}
+	public void PlayAvalanche(){
+		running.Play ("Avalanche");
+	}
+	public void PlayTeleportAnimation(){
+		running.Play ("Teleport");
+	}
+	void Teleport(){
+		ability.Teleport ();
+	}
+	void RemoveTeleportEffects(){
+		ability.RemoveTeleportEffects ();
 	}
 
 }

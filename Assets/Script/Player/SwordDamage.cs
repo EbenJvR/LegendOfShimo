@@ -5,9 +5,18 @@ public class SwordDamage : MonoBehaviour {
 
 	Stats damage;
 	bool canDamage = false;
+	public TrailRenderer trail;
 
 	void Start() {
 		damage = (Stats)FindObjectOfType (typeof(Stats));
+
+	}
+
+	void Update(){
+		if (canDamage == true)
+			trail.enabled = true;
+		if(canDamage == false)
+			trail.enabled = false;
 	}
 
 	public void CanDamage(bool value)

@@ -16,9 +16,11 @@ public class EnemyBaseClass : MonoBehaviour {
 	protected float alertRange;
 	private XP xpScript;
 	private Stats stat;
+	private NewestDamage FloatingDamage;
 	public GameObject alert;
 	private bool playerInRange;
 	public GameObject rayOrigin;
+	public GameObject damage;
 //	public GameObject Feet;
 	public Ray2D rangeRay;
 	public RaycastHit2D rayHit;
@@ -35,6 +37,7 @@ public class EnemyBaseClass : MonoBehaviour {
 	protected void PutInStart () {
 		xpScript = (XP)FindObjectOfType (typeof(XP));
 		stat = (Stats)FindObjectOfType (typeof(Stats));
+		FloatingDamage = (NewestDamage)FindObjectOfType (typeof(NewestDamage));
 		enemyCollider = GetComponent<BoxCollider2D>();
 		datRigidBody = GetComponent<Rigidbody2D> ();
 		enemy = GetComponent<Animator> ();
@@ -64,11 +67,11 @@ public class EnemyBaseClass : MonoBehaviour {
 				if (hit.collider.tag == "Shimo" && dead == false) {
 					playerInRange = true;
 					alert.SetActive (true);
-					if(canMove == true)
+					if(canMove == true && stop == false)
 						Move ();
 
 				} else if (playerInRange == true && dead == false)
-					if(canMove == true)
+					if(canMove == true && stop == false)
 						Move ();
 			}
 		}
@@ -119,12 +122,12 @@ public class EnemyBaseClass : MonoBehaviour {
 	private void Patrol()
 	{
 		if (transform.position.x > position.x - 3 && turn == "left") {
-			transform.rotation = Quaternion.Euler (0, 0, 0);
+
 			transform.position += Vector3.left * (movementSpeed - 2) * Time.deltaTime;
 			enemy.SetBool ("CalmLeft", true);
 			enemy.SetBool ("CalmRight", false);
 		} else if (transform.position.x < position.x + 3 && turn == "right") {
-			transform.rotation = Quaternion.Euler (0, 180, 0);
+
 			transform.position += Vector3.right * (movementSpeed - 2) * Time.deltaTime;
 			enemy.SetBool ("CalmRight", true);
 			enemy.SetBool ("CalmLeft", false);
@@ -133,12 +136,10 @@ public class EnemyBaseClass : MonoBehaviour {
 			enemy.SetBool ("CalmLeft", false);
 		}
 		if (transform.position.x <= position.x - 3) {
-			stop = true;
-			StartCoroutine ("WaitForTurn");
+			Turn ();
 		}
 		if (transform.position.x >= position.x + 3) {
-			stop = true;
-			StartCoroutine ("WaitForTurn");
+			Turn ();
 		}
 	}
 //	bool IsGrounded()
@@ -153,7 +154,18 @@ public class EnemyBaseClass : MonoBehaviour {
 	}
 	private void Damage(float value)
 	{
-		health -= value;
+		if (dead == false) {
+			FloatingDamage.AddDamage(value);
+			stop = true;
+			health -= value;
+			if (player.position.x < transform.position.x) {
+				datRigidBody.AddForce (Vector2.right * 100);
+			} else if (player.position.x > transform.position.x) {
+				datRigidBody.AddForce (-Vector2.right * 100);
+			}
+			Instantiate (damage, transform.position, Quaternion.identity);
+			StartCoroutine ("Wait");
+		}
 	}
 	protected virtual void Attack (){
 	}
@@ -168,16 +180,26 @@ public class EnemyBaseClass : MonoBehaviour {
 		enemy.SetBool ("CalmRight", false);
 		enemy.SetBool ("CalmLeft", false);
 	}
+	void Turn(){
+		stop = true;
+		StartCoroutine ("WaitForTurn");
+	}
+	IEnumerator Wait(){
+		yield return(new WaitForSeconds (0.2f));
+		stop = false;
+	}
 	IEnumerator WaitForTurn(){
 		if (stop == true && turn == "right") {
 			yield return(new WaitForSeconds (2));
 			turn = "left";
 			stop = false;
+			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
 		if (stop == true && turn == "left") {
 			yield return(new WaitForSeconds (2));
 			turn = "right";
 			stop = false;
+			transform.rotation = Quaternion.Euler (0, 180, 0);
 		}
 	}
 }

@@ -62,7 +62,8 @@ public class Abilities : MonoBehaviour {
 	GameObject teleportSelection; //Teleport HUD Selection
 	public Slider teleportCooldown; //Teleport Cooldown Visual
 	private int teleportLevel; //Teleport Level
-	private bool activatedTeleport = false; //Move Player The Second Time Teleport Is Activated 
+	private bool activatedTeleport = false;//Move Player The Second Time Teleport Is Activated
+	Vector3 teleportLocation;
 	#endregion
 	#region IceWraith
 	private Stopwatch iceWraithTimer; //Ice Wraith Cooldown
@@ -273,11 +274,14 @@ public class Abilities : MonoBehaviour {
 	//First ability
 	private void activateFirst(){
 		if(chiAmount >= iceShardUpgrades[1,iceShardLevel] && iceShardTimer.ElapsedMilliseconds == 0 && playing == true){
-			Instantiate(iceShard, player.position, Quaternion.identity);
-			chiScript.reduceChi(iceShardUpgrades[1,iceShardLevel]);
-			iceShardTimer.Start();
-			iceShardCooldown.maxValue = iceShardUpgrades [2, iceShardLevel];
+			teleportParticle.PlayIceShard();
 		}
+	}
+	public void ShootShard(){
+		Instantiate(iceShard, player.position, Quaternion.identity);
+		chiScript.reduceChi(iceShardUpgrades[1,iceShardLevel]);
+		iceShardTimer.Start();
+		iceShardCooldown.maxValue = iceShardUpgrades [2, iceShardLevel];
 	}
 	#endregion
 
@@ -287,6 +291,7 @@ public class Abilities : MonoBehaviour {
 	{
 		if(chiAmount >= avalancheUpgrades[1,avalancheLevel] && avalancheTimer.ElapsedMilliseconds == 0 && playing == true){
 			Instantiate(avalanche, player.position, Quaternion.identity);
+			teleportParticle.PlayAvalanche();
 			chiScript.reduceChi(avalancheUpgrades[1,avalancheLevel]);
 			avalancheTimer.Start ();
 			avalancheCooldown.maxValue = avalancheUpgrades [2, avalancheLevel];
@@ -307,17 +312,23 @@ public class Abilities : MonoBehaviour {
 		}
 	}
 	private void deactivateThird(){
-		teleportTimer.Start ();
-		teleportCooldown.maxValue = teleportUpgrades [2, teleportLevel];
-		abilityLock = false;
-		player.position = Vector3.MoveTowards (player.position, teleport.transform.position, 100);
-		player.transform.position = new Vector3 (player.position.x, player.position.y, -1);
-		teleportParticle.PlayTeleport ();
-		Time.timeScale = 1F;
+		teleportParticle.PlayTeleportAnimation ();
+	}
+	public void RemoveTeleportEffects(){
 		teleport.SetActive(false);
 		activatedTeleport = false;
 		Instantiate (cursor, mousePosition, Quaternion.identity);
-	} 
+		teleportLocation = teleport.transform.position;
+	}
+	public void Teleport(){
+		Time.timeScale = 1F;
+		player.position = Vector3.MoveTowards (player.position, teleportLocation, 100);
+		player.transform.position = new Vector3 (player.position.x, player.position.y, -1);
+		teleportParticle.PlayTeleport ();
+		teleportTimer.Start ();
+		teleportCooldown.maxValue = teleportUpgrades [2, teleportLevel];
+		abilityLock = false;
+	}
 	private void removeThird(){
 		abilityLock = false;
 		Time.timeScale = 1F;
