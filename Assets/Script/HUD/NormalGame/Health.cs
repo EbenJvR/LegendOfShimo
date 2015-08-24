@@ -7,7 +7,6 @@ public class Health : MonoBehaviour {
 	Stats healthStat;
 	public Slider healthSlider;
 	private bool dead = false;
-	public Text healthText;
 	float flashspeed = 1f;
 	Color flashColor = new Color (1f, 0f, 0f, 0.1f);
 	public Image flashImage;
@@ -27,7 +26,6 @@ public class Health : MonoBehaviour {
 		}
 		if (healthStat.getCurrentHealth() > healthStat.getTotalHealth())
 			healthStat.setCurrentHealth(healthStat.getTotalHealth());
-		healthText.text = "Health amount: " + healthSlider.value.ToString();
 	}
 
 	public void Damage(int amount){

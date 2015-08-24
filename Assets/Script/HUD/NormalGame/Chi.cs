@@ -6,7 +6,6 @@ public class Chi : MonoBehaviour {
 
 	Stats chiStat;
 	public Slider chiSlider;
-	public Text chi;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +17,6 @@ public class Chi : MonoBehaviour {
 	void Update () {
 		chiSlider.maxValue = chiStat.getTotalChi();
 		chiSlider.value = chiStat.getCurrentChi();
-		chi.text = "Chi amount: " + chiSlider.value.ToString();
 		if (chiStat.getCurrentChi () > chiStat.getTotalChi ())
 			chiStat.setCurrentChi (chiStat.getTotalChi ());
 	}

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MovementMk2 : MonoBehaviour {
 
-	public GameObject feet; //isGrounded Array Start
+	public GameObject feet; 
+	public GameObject Dust;
 	private Animator running; //Running and Attacking Animation
 	BoxCollider2D playerCollider; //Used for Duck
 	Rigidbody2D datRigidBody; //Used For Double Jump
@@ -11,7 +12,7 @@ public class MovementMk2 : MonoBehaviour {
 	int currentJump = 0; //Check If Current Jump Is A Double Jump
 	float fallVelocity = 0; //Check Fall damage
 	float speed; //Movement Speed
-	public float startSpeed = 10f;
+	float startSpeed = 4.5f;
 	private float jumpForce = 10f;
 	public float JumpForce {
 		get {
@@ -23,7 +24,6 @@ public class MovementMk2 : MonoBehaviour {
 	}
 
  //First Jump Height
-	public float doubleJumpForce = 1f; //Double Jump Height
 	public bool isGrounded = false; //Check If The Player Is Grounded
 	bool checkFall = false; //Make Sure Fall Damage Is Apllied At Right Time
 	bool playing; //Pause Movement When Game Is Paused
@@ -59,8 +59,8 @@ public class MovementMk2 : MonoBehaviour {
 		playing = menu.GetPlaying ();
 
 		//Draw Check Ground Ray
-		Vector3 down = transform.TransformDirection(Vector3.down) * 0.2f;
-		Debug.DrawRay(feet.transform.position, down, Color.blue);
+		Vector3 down = transform.TransformDirection(Vector3.down) * 0.7f;
+		Debug.DrawRay(transform.position, down, Color.blue);
 
 		//Add Fall Damage
 		if (IsGrounded()) 
@@ -69,7 +69,7 @@ public class MovementMk2 : MonoBehaviour {
 			currentJump = 0;
 			if(checkFall)
 			{
-				if(gameObject.tag == "Player")
+				if(gameObject.tag == "Shimo")
 				FallDamage(fallVelocity);
 			}
 		} else 
@@ -83,7 +83,7 @@ public class MovementMk2 : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A) && playing == true) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 			running.SetBool ("RunLeft", true);
-			transform.rotation = Quaternion.Euler (0, 180, 0);
+			transform.rotation = Quaternion.Euler (0, 0, 0);
 		} else
 			running.SetBool ("RunLeft", false);
 		
@@ -92,7 +92,7 @@ public class MovementMk2 : MonoBehaviour {
 		{
 			transform.position += Vector3.right * speed * Time.deltaTime;
 			running.SetBool ("RunRight", true);
-			transform.rotation = Quaternion.Euler(0f, 0f,0f);
+			transform.rotation = Quaternion.Euler(0f, 180f,0f);
 		} else
 			running.SetBool ("RunRight", false);
 
@@ -154,14 +154,15 @@ public class MovementMk2 : MonoBehaviour {
 		Vector2 v2 = datRigidBody.velocity;
 		v2.y = 0;
 		datRigidBody.velocity = v2;
-		datRigidBody.AddForce (Vector2.up * doubleJumpForce);
+		datRigidBody.velocity = new Vector2(datRigidBody.velocity.x,jumpForce);
 	}
 	//Fall Damage
 	void FallDamage(float fall)
 	{
 		fall = Mathf.Round(fall);
-		if(fall < -26)
+		if(fall < -1)
 		{
+			Instantiate(Dust, feet.transform.position, Quaternion.identity);
 			health.Damage((int)(fall+26)*-1);
 		}
 		checkFall = false;

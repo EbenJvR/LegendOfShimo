@@ -9,7 +9,6 @@ public class XP : MonoBehaviour {
 	private int points;
 	private int level;
 	private int[] xp = new int[3];
-	public Text Experience;
 	
 	// Use this for initialization
 	void Start () {
@@ -26,7 +25,6 @@ public class XP : MonoBehaviour {
 			if (xpSlider.value == xp [xpStat.getLevel()]) {
 			Level ();
 		}
-		Experience.text = "XP amount: " + xpSlider.value.ToString();
 	}
 	
 	public void increaseXP(int amount){

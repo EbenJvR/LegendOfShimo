@@ -99,11 +99,6 @@
      <Compile Include="Assets\Script\Rolling Objects\ObjectDamage.cs" />
      <Compile Include="Assets\Script\Rotation.cs" />
      <Compile Include="Assets\Script\SaveLoad.cs" />
-     <Compile Include="Assets\Scripts\HealthScript.cs" />
-     <Compile Include="Assets\Scripts\MoveScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\ShotScript.cs" />
-     <Compile Include="Assets\Scripts\WeaponScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

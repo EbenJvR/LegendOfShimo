@@ -31,8 +31,8 @@ public class Tutorial : MonoBehaviour {
 		}
 	}
 	IEnumerator Up(){
-		for (int i = 0; i < 4; i++) {
-			yield return(new WaitForSeconds (0.05f));
+		for (int i = 0; i < 8; i++) {
+			yield return(new WaitForSeconds (0.025f));
 			Board.value++;
 		}
 		TutorialText.text = message;
@@ -41,8 +41,8 @@ public class Tutorial : MonoBehaviour {
 	}
 	IEnumerator Down(){
 		TutorialText.text = "";
-		for (int i = 0; i < 4; i++) {
-			yield return(new WaitForSeconds (0.05f));
+		for (int i = 0; i < 8; i++) {
+			yield return(new WaitForSeconds (0.025f));
 			Board.value--;
 		}
 		if (Board.value != 0)

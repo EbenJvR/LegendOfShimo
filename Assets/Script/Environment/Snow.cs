@@ -8,7 +8,6 @@ public class Snow : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Shimo"){
-		Debug.Log ("Walked through Snow");
 		other.transform.SendMessage("SetMovement", snowMovement);
 		}
 	}

@@ -38,9 +38,9 @@ public class UpgradeScreen : MonoBehaviour {
 		menu = GetComponent<Menus> ();
 		RefreshStats ();
 		IceShard.gameObject.transform.position = IceShardStart;
-		Avalanche.gameObject.transform.position = new Vector3(AvalancheStart.x + 500,AvalancheStart.y,AvalancheStart.z);
-		Teleport.gameObject.transform.position = new Vector3(TeleportStart.x + 500,TeleportStart.y,TeleportStart.z);
-		IceWraith.gameObject.transform.position = new Vector3(IceWraithStart.x + 500,IceWraithStart.y,IceWraithStart.z);
+		Avalanche.gameObject.transform.position = new Vector3(AvalancheStart.x + 1000,AvalancheStart.y,AvalancheStart.z);
+		Teleport.gameObject.transform.position = new Vector3(TeleportStart.x + 1000,TeleportStart.y,TeleportStart.z);
+		IceWraith.gameObject.transform.position = new Vector3(IceWraithStart.x + 1000,IceWraithStart.y,IceWraithStart.z);
 	}
 	
 	void Update () {
@@ -54,21 +54,21 @@ public class UpgradeScreen : MonoBehaviour {
 	}
 	public void DisplayInfo() {
 		if (ability == 0)
-			abilityStats [ability].text = "Level " + stats.iceShardLevel + " -> " + level + "\nAbility Damage : " + abilities.iceShardUpgrades [0, stats.iceShardLevel] + "\nUpgrade Damage : " + abilities.iceShardUpgrades [0, level] + 
-				"\n\nAbility Cost : " + abilities.iceShardUpgrades [1, stats.iceShardLevel] + "\nUpgrade Cost : " + abilities.iceShardUpgrades [1, level] + 
-				"\n\nAbility Cooldown : " + abilities.iceShardUpgrades [2, stats.iceShardLevel] + "\nUpgrade Cooldown : " + abilities.iceShardUpgrades [2, level];
+			abilityStats [ability].text = "Level " + stats.iceShardLevel + " -> " + level + "\nCurrent Damage : " + abilities.iceShardUpgrades [0, stats.iceShardLevel] + "\nDamage at lv " + level + " : " + abilities.iceShardUpgrades [0, level] + 
+				"\n\nCurrent Cost : " + abilities.iceShardUpgrades [1, stats.iceShardLevel] + "\nCost at lv " + level + " : "  + abilities.iceShardUpgrades [1, level] + 
+				"\n\nCurrent Cooldown : " + abilities.iceShardUpgrades [2, stats.iceShardLevel] + "\nCooldown at lv " + level + " : " + abilities.iceShardUpgrades [2, level];
 		if (ability == 1)
-			abilityStats [ability].text = "Level " + stats.avalanceLevel + " -> " + level + "\nAbility Damage : " + abilities.avalancheUpgrades [0, stats.avalanceLevel] + "\nUpgrade Damage : " + abilities.avalancheUpgrades [0, level] + 
-				"\n\nAbility Cost : " + abilities.avalancheUpgrades [1, stats.avalanceLevel] + "\nUpgrade Cost : " + abilities.avalancheUpgrades [1, level] + 
-				"\n\nAbility Cooldown : " + abilities.avalancheUpgrades [2, stats.avalanceLevel] + "\nUpgrade Cooldown : " + abilities.avalancheUpgrades [2, level];
+			abilityStats [ability].text = "Level " + stats.avalanceLevel + " -> " + level + "\nCurrent Damage : " + abilities.avalancheUpgrades [0, stats.avalanceLevel] + "\nDamage at lv " + level + " : " + abilities.avalancheUpgrades [0, level] + 
+				"\n\nCurrent Cost : " + abilities.avalancheUpgrades [1, stats.avalanceLevel] + "\nCost at lv " + level + " : "  + abilities.avalancheUpgrades [1, level] + 
+				"\n\nCurrent Cooldown : " + abilities.avalancheUpgrades [2, stats.avalanceLevel] + "\nCooldown at lv " + level + " : " + abilities.avalancheUpgrades [2, level];
 		if (ability == 2)
-			abilityStats [ability].text = "Level " + stats.teleportLevel + " -> " + level + "\nAbility Range : " + abilities.teleportUpgrades [0, stats.teleportLevel] + "\nUpgrade Range : " + abilities.teleportUpgrades [0, level] + 
-				"\n\nAbility Cost : " + abilities.teleportUpgrades [1, stats.teleportLevel] + "\nUpgrade Cost : " + abilities.teleportUpgrades [1, level] + 
-				"\n\nAbility Cooldown : " + abilities.teleportUpgrades [2, stats.teleportLevel] + "\nUpgrade Cooldown : " + abilities.teleportUpgrades [2, level];
+			abilityStats [ability].text = "Level " + stats.teleportLevel + " -> " + level + "\nCurrent Damage : " + abilities.teleportUpgrades [0, stats.teleportLevel] + "\nRange at lv " + level + " : " + abilities.teleportUpgrades [0, level] + 
+				"\n\nCurrent Cost : " + abilities.teleportUpgrades [1, stats.teleportLevel] + "\nCost at lv " + level + " : "  + abilities.teleportUpgrades [1, level] + 
+				"\n\nCurrent Cooldown : " + abilities.teleportUpgrades [2, stats.teleportLevel] + "\nCooldown at lv " + level + " : " + abilities.teleportUpgrades [2, level];
 		if (ability == 3)
-			abilityStats [ability].text = "Level " + stats.iceWraithLevel + " -> " + level + "\nAbility Damage Increase : " + abilities.iceWraithUpgrades [0, stats.iceWraithLevel] + "\nUpgrade Damage Increase : " + abilities.iceWraithUpgrades [0, level] + 
-				"\n\nAbility Drain Cost : " + abilities.iceWraithUpgrades [1, stats.iceWraithLevel] + "\nUpgrade Drain Cost : " + abilities.iceWraithUpgrades [1, level] + 
-				"\n\nAbility Cooldown : " + abilities.iceWraithUpgrades [2, stats.iceWraithLevel] + "\nUpgrade Cooldown : " + abilities.iceWraithUpgrades [2, level];
+			abilityStats [ability].text = "Level " + stats.iceWraithLevel + " -> " + level + "\nCurrent Damage Increse : " + abilities.iceWraithUpgrades [0, stats.iceWraithLevel] + "\nDamage Increase at lv " + level + " : " + abilities.iceWraithUpgrades [0, level] + 
+				"\n\nCurrent Drain Cost : " + abilities.iceWraithUpgrades [1, stats.iceWraithLevel] + "\nDrain Cost at lv " + level + " : "  + abilities.iceWraithUpgrades [1, level] + 
+				"\n\nCurrent Cooldown : " + abilities.iceWraithUpgrades [2, stats.iceWraithLevel] +  "\nCooldown at lv " + level + " : "  + abilities.iceWraithUpgrades [2, level];
 
 	}
 
@@ -78,23 +78,23 @@ public class UpgradeScreen : MonoBehaviour {
 	}
 
 	public void RefreshStats(){
-		for(int i = 0; i < 4; i++)
-			currentStats[i].text = "Health : " + stats.currentHealth + "/" + stats.totalHealth + "\nChi : " + stats.currentChi + "/" + stats.totalChi + "\nMelee Damage : " + stats.meleeDamage + "\nXP : " + stats.currentXp + "/" + xpStats.ReturnMaxXP() + 
-				"\nUpgrade Points : " + stats.levelPoints;
-		abilityStats [ability].text = "";
+//		for(int i = 1; i < 4; i++)
+//			currentStats[i].text = "Health : " + stats.currentHealth + "/" + stats.totalHealth + "\nChi : " + stats.currentChi + "/" + stats.totalChi + "\nMelee Damage : " + stats.meleeDamage + "\nXP : " + stats.currentXp + "/" + xpStats.ReturnMaxXP() + 
+//				"\nUpgrade Points : " + stats.levelPoints;
+//		abilityStats [ability].text = "";
 	}
 
 	public void MoveScreenLeft(){
 		if (currentMenu == 1) {
-			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 500, IceShardStart.y, IceShardStart.z);
+			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 1000, IceShardStart.y, IceShardStart.z);
 			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x, AvalancheStart.y, AvalancheStart.z);
 		}
 		if (currentMenu == 2) {
-			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 500, AvalancheStart.y, AvalancheStart.z);
+			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 1000, AvalancheStart.y, AvalancheStart.z);
 			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x, TeleportStart.y, TeleportStart.z);
 		}
 		if (currentMenu == 3) {
-			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x - 500, TeleportStart.y, TeleportStart.z);
+			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x - 1000, TeleportStart.y, TeleportStart.z);
 			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x, IceWraithStart.y, IceWraithStart.z);
 		}
 		currentMenu ++;
@@ -102,15 +102,15 @@ public class UpgradeScreen : MonoBehaviour {
 	public void MoveScreenRight(){
 		if (currentMenu == 2) {
 			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x, IceShardStart.y, IceShardStart.z);
-			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x + 500, AvalancheStart.y, AvalancheStart.z);
+			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x + 1000, AvalancheStart.y, AvalancheStart.z);
 		}
 		if (currentMenu == 3) {
 			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x, AvalancheStart.y, AvalancheStart.z);
-			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 500, TeleportStart.y, TeleportStart.z);
+			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 1000, TeleportStart.y, TeleportStart.z);
 		}
 		if (currentMenu == 4) {
 			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x, TeleportStart.y, TeleportStart.z);
-			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 500, IceWraithStart.y, IceWraithStart.z);
+			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 1000, IceWraithStart.y, IceWraithStart.z);
 		}
 		currentMenu --;
 	}
@@ -125,29 +125,29 @@ public class UpgradeScreen : MonoBehaviour {
 	public void JumpToPage(int page){
 		if (page == 1) {
 			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x, IceShardStart.y, IceShardStart.z);
-			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x + 500, AvalancheStart.y, AvalancheStart.z);
-			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 500, TeleportStart.y, TeleportStart.z);
-			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 500, IceWraithStart.y, IceWraithStart.z);
+			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x + 1000, AvalancheStart.y, AvalancheStart.z);
+			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 1000, TeleportStart.y, TeleportStart.z);
+			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 1000, IceWraithStart.y, IceWraithStart.z);
 			currentMenu = 1;
 		}
 		if (page == 2) {
-			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 500, IceShardStart.y, IceShardStart.z);
+			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 1000, IceShardStart.y, IceShardStart.z);
 			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x, AvalancheStart.y, AvalancheStart.z);
-			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 500, TeleportStart.y, TeleportStart.z);
-			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 500, IceWraithStart.y, IceWraithStart.z);
+			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x + 1000, TeleportStart.y, TeleportStart.z);
+			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 1000, IceWraithStart.y, IceWraithStart.z);
 			currentMenu = 2;
 		}
 		if (page == 3) {
-			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 500, IceShardStart.y, IceShardStart.z);
-			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 500, AvalancheStart.y, AvalancheStart.z);
+			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 1000, IceShardStart.y, IceShardStart.z);
+			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 1000, AvalancheStart.y, AvalancheStart.z);
 			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x, TeleportStart.y, TeleportStart.z);
-			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 500, IceWraithStart.y, IceWraithStart.z);
+			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x + 1000, IceWraithStart.y, IceWraithStart.z);
 			currentMenu = 3;
 		}
 		if (page == 4) {
-			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 500, IceShardStart.y, IceShardStart.z);
-			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 500, AvalancheStart.y, AvalancheStart.z);
-			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x - 500, TeleportStart.y, TeleportStart.z);
+			IceShard.gameObject.transform.position = new Vector3 (IceShardStart.x - 1000, IceShardStart.y, IceShardStart.z);
+			Avalanche.gameObject.transform.position = new Vector3 (AvalancheStart.x - 1000, AvalancheStart.y, AvalancheStart.z);
+			Teleport.gameObject.transform.position = new Vector3 (TeleportStart.x - 1000, TeleportStart.y, TeleportStart.z);
 			IceWraith.gameObject.transform.position = new Vector3 (IceWraithStart.x, IceWraithStart.y, IceWraithStart.z);
 			currentMenu = 4;
 		}
