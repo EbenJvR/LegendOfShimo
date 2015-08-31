@@ -9,20 +9,19 @@ public class Settings : MonoBehaviour {
 	public Slider masterSlider;
 	public Slider musicSlider;
 	public GameObject qualityComboBox;
-	//public Text qualityButtonText;
-	public Button qualityButtonText;
-	int qualityLevel;
-
+	public Text qualityButtonText;
+	//public Button qualityButtonText;
+//	public AudioSource audio;
 	
 	void Start () {
 		FindObjects ();
+
+		DisplayQuality ();
+
 		settings.SetActive (false);
 		qualityComboBox.SetActive (false);
 
-		qualityLevel = QualitySettings.GetQualityLevel ();
 
-
-		//DisplayQuality(qualityLevel);
 
 		Time.timeScale = 1F;
 
@@ -49,6 +48,7 @@ public class Settings : MonoBehaviour {
 		settings = GameObject.Find ("Settings");
 		qualityComboBox = GameObject.Find ("QualityComboBox");
 
+		//audio = GameObject.Find ();
 
 		//qualityButtonText = GameObject.Find ("QualityButtonText").GetComponent<Text> ();
 		//qualityButtonText = gameObject.GetComponent<Text> ();
@@ -63,7 +63,7 @@ public class Settings : MonoBehaviour {
 	public void OpenSettings()
 	{
 		settings.SetActive (true);
-		DisplayQuality (qualityLevel);
+		DisplayQuality ();
 
 	}
 
@@ -71,26 +71,31 @@ public class Settings : MonoBehaviour {
 	public void FastSet()
 	{
 		QualitySettings.SetQualityLevel (0, true);
+		DisplayQuality ();
 	}
 
 	public void LowSet()
 	{
 		QualitySettings.SetQualityLevel (1, true);
+		DisplayQuality ();
 	}
 
 	public void MedSet()
 	{
 		QualitySettings.SetQualityLevel (2, true);
+		DisplayQuality ();
 	}
 
 	public void HighSet()
 	{
 		QualitySettings.SetQualityLevel (3, true);
+		DisplayQuality ();
 	}
 
 	public void UltraHighSet()
 	{
 		QualitySettings.SetQualityLevel (4, true);
+		DisplayQuality ();
 	}
 
 
@@ -116,13 +121,17 @@ public class Settings : MonoBehaviour {
 		musicSlider.value = musicSound;
 
 		QualitySettings.SetQualityLevel (2, true);
+		DisplayQuality ();
+
 		//mainMixer.SetFloat ("MasterVol", masterSound);
 		//mainMixer.SetFloat ("MusicVol", musicSound);
 
 	}
 
-	public void DisplayQuality(int qualityLevel)
+	public void DisplayQuality()
 	{
+		int qualityLevel = QualitySettings.GetQualityLevel ();
+
 		if (qualityLevel == 0) 
 		{
 			qualityButtonText.text = "Fast";
@@ -137,7 +146,7 @@ public class Settings : MonoBehaviour {
 
 		else if (qualityLevel == 2) 
 		{
-			qualityButtonText.text = "Mid";
+			qualityButtonText.text = "Medium";
 
 		} 
 
@@ -152,5 +161,18 @@ public class Settings : MonoBehaviour {
 			qualityButtonText.text = "Ultra High";
 		}
 	}
+
+//	public void Mute(AudioSource audio)
+//	{
+//		if(audio.mute)
+//		{
+//			audio.mute = false;
+//		}
+//
+//		else
+//		{
+//			audio.mute = true;
+//		}
+//	}
 
 }
